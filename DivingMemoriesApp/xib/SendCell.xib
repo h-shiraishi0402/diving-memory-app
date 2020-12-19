@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SendCell" rowHeight="89" id="KGk-i7-Jjw" customClass="SendCell" customModule="DivingMemoriesApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="450" height="89"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="450" height="89"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQb-PV-N1E">
+                        <rect key="frame" x="180" y="10" width="250" height="69"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="250" id="jfH-Kb-J2P"/>
+                        </constraints>
+                        <color key="textColor" systemColor="labelColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rXZ-My-zVo">
+                        <rect key="frame" x="110" y="70.5" width="65" height="8.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="65" id="QD3-i2-cXP"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="7"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="TQb-PV-N1E" secondAttribute="trailing" constant="20" id="FMS-Z4-T0a"/>
+                    <constraint firstItem="TQb-PV-N1E" firstAttribute="bottom" secondItem="rXZ-My-zVo" secondAttribute="bottom" id="KeO-Z6-JhY"/>
+                    <constraint firstItem="TQb-PV-N1E" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="QnM-Tf-NAk"/>
+                    <constraint firstAttribute="bottom" secondItem="TQb-PV-N1E" secondAttribute="bottom" constant="10" id="Sch-Vs-e8I"/>
+                    <constraint firstItem="TQb-PV-N1E" firstAttribute="leading" secondItem="rXZ-My-zVo" secondAttribute="trailing" constant="5" id="nPr-uv-G0J"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="SendLabel" destination="TQb-PV-N1E" id="HYu-im-KVW"/>
+                <outlet property="SendTextWidth" destination="jfH-Kb-J2P" id="U38-3i-KR8"/>
+                <outlet property="taimeLabel" destination="rXZ-My-zVo" id="kK3-Mm-G3a"/>
+            </connections>
+            <point key="canvasLocation" x="-2362.3188405797105" y="-667.29910714285711"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

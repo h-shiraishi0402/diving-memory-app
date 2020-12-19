@@ -1,0 +1,78 @@
+
+/* Class = "UILabel"; text = "住所"; ObjectID = "0El-bN-WvZ"; */
+"0El-bN-WvZ.text" = "住所";
+
+/* Class = "UITextField"; placeholder = "必須入力"; ObjectID = "2dh-Te-PuU"; */
+"2dh-Te-PuU.placeholder" = "必須入力";
+
+/* Class = "UILabel"; text = "Email Address"; ObjectID = "43s-hU-nX8"; */
+"43s-hU-nX8.text" = "Email Address";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "86g-LW-S4K"; */
+"86g-LW-S4K.normalTitle" = "Login";
+
+/* Class = "UILabel"; text = "ダイビング歴"; ObjectID = "8Qv-yD-KX0"; */
+"8Qv-yD-KX0.text" = "ダイビング歴";
+
+/* Class = "UILabel"; text = "新規登録"; ObjectID = "8YN-eZ-mwY"; */
+"8YN-eZ-mwY.text" = "新規登録";
+
+/* Class = "UITextField"; placeholder = "必須入力"; ObjectID = "9Fu-oV-Ljj"; */
+"9Fu-oV-Ljj.placeholder" = "必須入力";
+
+/* Class = "UITextField"; placeholder = "必須入力"; ObjectID = "Ckx-E0-vFF"; */
+"Ckx-E0-vFF.placeholder" = "必須入力";
+
+/* Class = "UILabel"; text = "性別"; ObjectID = "GT9-1l-4GN"; */
+"GT9-1l-4GN.text" = "性別";
+
+/* Class = "UITabBarItem"; title = "チャット"; ObjectID = "IaK-vc-rWP"; */
+"IaK-vc-rWP.title" = "チャット";
+
+/* Class = "UITabBarItem"; title = "検索"; ObjectID = "Kig-Zu-Pnp"; */
+"Kig-Zu-Pnp.title" = "検索";
+
+/* Class = "UIButton"; normalTitle = "ここへ行く"; ObjectID = "QhN-z4-bW0"; */
+"QhN-z4-bW0.normalTitle" = "ここへ行く";
+
+/* Class = "UILabel"; text = "所有ライセンス"; ObjectID = "UVL-rg-wl2"; */
+"UVL-rg-wl2.text" = "所有ライセンス";
+
+/* Class = "UITextField"; placeholder = "必須入力"; ObjectID = "X2h-5g-0t2"; */
+"X2h-5g-0t2.placeholder" = "必須入力";
+
+/* Class = "UIButton"; normalTitle = "新規登録"; ObjectID = "ZUh-MD-MzM"; */
+"ZUh-MD-MzM.normalTitle" = "新規登録";
+
+/* Class = "UILabel"; text = "ニックネーム"; ObjectID = "ZXc-8o-HkH"; */
+"ZXc-8o-HkH.text" = "ニックネーム";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "bD4-MC-Hzn"; */
+"bD4-MC-Hzn.placeholder" = "Password";
+
+/* Class = "UILabel"; text = "ユーザーネーム"; ObjectID = "e2v-pC-cca"; */
+"e2v-pC-cca.text" = "ユーザーネーム";
+
+/* Class = "UITabBarItem"; title = "ホーム"; ObjectID = "fZa-8B-Mda"; */
+"fZa-8B-Mda.title" = "ホーム";
+
+/* Class = "UILabel"; text = "年齢"; ObjectID = "jCO-FW-Wc3"; */
+"jCO-FW-Wc3.text" = "年齢";
+
+/* Class = "UIButton"; normalTitle = " 戻る"; ObjectID = "ov3-Xr-0rY"; */
+"ov3-Xr-0rY.normalTitle" = " 戻る";
+
+/* Class = "UITabBarItem"; title = "ダイビング記録"; ObjectID = "q59-Wc-5aD"; */
+"q59-Wc-5aD.title" = "ダイビング記録";
+
+/* Class = "UITextField"; placeholder = "UserName or Email"; ObjectID = "qOH-mR-eYI"; */
+"qOH-mR-eYI.placeholder" = "UserName or Email";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "tFW-Ah-Z7q"; */
+"tFW-Ah-Z7q.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "完了"; ObjectID = "uVS-3E-rIA"; */
+"uVS-3E-rIA.normalTitle" = "完了";
+
+/* Class = "UILabel"; text = "パスワード"; ObjectID = "yDV-nR-0LR"; */
+"yDV-nR-0LR.text" = "パスワード";
