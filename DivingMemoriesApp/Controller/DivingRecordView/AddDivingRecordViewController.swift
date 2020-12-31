@@ -7,8 +7,8 @@
 
 import UIKit
 
-class AddDivingRecordViewController: UIViewController, UITextFieldDelegate{
-   
+class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
+    
     
     
     let divingGroundTitlePicker = UIPickerView()
@@ -40,13 +40,16 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet var waterTemperature: UITextField!
     //透視度
     @IBOutlet var transparency: UITextField!
+    //透視度タイプ
+    @IBOutlet var permeability_typ: UITextField!
     //ウェイト
     @IBOutlet var weight: UITextField!
+    ////ウェイトタイプ
+    @IBOutlet var w_type: UITextField!
     
     
-    
-    
-    
+    var tspy_type = ["ft","m"]
+    var type = ["lbs","kg"]
     
     
     
@@ -57,22 +60,25 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate{
         divingGroundTitle.layer.cornerRadius = 20
         divingGroundTitle.clipsToBounds = true
         dateTextField.delegate = self
-
-            inTime.delegate = self
-          
-            outTime.delegate = self
-          
-            startingPressure.delegate = self
-
-            endPressure.delegate = self
-
-            airTemperature.delegate = self
-
-            waterTemperature.delegate = self
-
-            transparency.delegate = self
-
-            weight.delegate = self
+        
+        inTime.delegate = self
+        
+        outTime.delegate = self
+        
+        startingPressure.delegate = self
+        
+        endPressure.delegate = self
+        
+        airTemperature.delegate = self
+        
+        waterTemperature.delegate = self
+        
+        transparency.delegate = self
+        
+        weight.delegate = self
+        
+        weightPicker.delegate = self
+        weightPicker.dataSource = self
         
         
     }
@@ -81,7 +87,7 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        createDatePicker()
+        createPicker()
         
     }
     
@@ -90,7 +96,7 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate{
     
     
     
-    func createDatePicker(){
+    func createPicker(){
         
         // DatePickerModeをDate(日付)に設定
         datePicker.datePickerMode = .date
@@ -116,8 +122,8 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate{
         dateTextField.inputAccessoryView = toolbar
         
         
-       
-
+        
+        
         
         
         
@@ -136,62 +142,61 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate{
         inTimePicker.minuteInterval = 10
         outTimePicker.minuteInterval = 10
         
-
+        
         inTime.inputView = inTimePicker
         outTime.inputView = outTimePicker
         
-    
+        
         toolbar.setItems([doneButton], animated: true)
         inTime.inputAccessoryView = toolbar
         outTime.inputAccessoryView = toolbar
-            
-       
-        
-       
-        
-        
-//
-//
-//
-//        //
-//        SexCreat.inputView = SexPicker
-//
-//        let SexPickertoolbar = UIToolbar()
-//        SexPickertoolbar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
-//
-//        let SexPickerdone = UIBarButtonItem(title: "完了", style: .done, target: self, action: #selector(SettingViewController.donePicker))
-//        SexPickertoolbar.setItems([SexPickerdone], animated: true)
-//        SexCreat.inputAccessoryView = SexPickertoolbar
-//
-//
-//
-//        //
-//        OwnedLicenseCreat.inputView = OwnedLiicensePicker
-//
-//        let OwnedLiicensetoolbar = UIToolbar()
-//        OwnedLiicensetoolbar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
-//
-//        let OwnedLiicensePickerdone = UIBarButtonItem(title: "完了", style: .done, target: self, action: #selector(SettingViewController.donePicker))
-//        OwnedLiicensetoolbar.setItems([OwnedLiicensePickerdone], animated: true)
-//        OwnedLicenseCreat.inputAccessoryView = OwnedLiicensetoolbar
-//
-//
-//
-//        //
-//        DivinghistoryCreat.inputView = DivinghistoryPicker
-//
-//        let Divinghistorytoolbar = UIToolbar()
-//        Divinghistorytoolbar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
-//
-//        let Divinghistorydone = UIBarButtonItem(title: "完了", style: .done, target: self, action: #selector(SettingViewController.donePicker))
-//        Divinghistorytoolbar.setItems([Divinghistorydone], animated: true)
-//        DivinghistoryCreat.inputAccessoryView = Divinghistorytoolbar
-//
-//
         
         
         
-
+        
+        
+        
+        
+        
+        //
+        w_type.inputView = weightPicker
+        
+        let weighttoolbar = UIToolbar()
+        weighttoolbar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
+        
+        let weightdone = UIBarButtonItem(title: "完了", style: .done, target: self, action: #selector(AddDivingRecordViewController.doneClicked))
+        weighttoolbar.setItems([weightdone], animated: true)
+        w_type.inputAccessoryView = weighttoolbar
+        
+        
+        //
+        //        //
+        //        OwnedLicenseCreat.inputView = OwnedLiicensePicker
+        //
+        //        let OwnedLiicensetoolbar = UIToolbar()
+        //        OwnedLiicensetoolbar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
+        //
+        //        let OwnedLiicensePickerdone = UIBarButtonItem(title: "完了", style: .done, target: self, action: #selector(SettingViewController.donePicker))
+        //        OwnedLiicensetoolbar.setItems([OwnedLiicensePickerdone], animated: true)
+        //        OwnedLicenseCreat.inputAccessoryView = OwnedLiicensetoolbar
+        //
+        //
+        //
+        //        //
+        //        DivinghistoryCreat.inputView = DivinghistoryPicker
+        //
+        //        let Divinghistorytoolbar = UIToolbar()
+        //        Divinghistorytoolbar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
+        //
+        //        let Divinghistorydone = UIBarButtonItem(title: "完了", style: .done, target: self, action: #selector(SettingViewController.donePicker))
+        //        Divinghistorytoolbar.setItems([Divinghistorydone], animated: true)
+        //        DivinghistoryCreat.inputAccessoryView = Divinghistorytoolbar
+        //
+        //
+        
+        
+        
+        
         
         
         
@@ -202,7 +207,7 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate{
     
     
     
-    @objc func doneClicked(){
+    @objc func doneClicked(picker: UIPickerView){
         let dateFormatter = DateFormatter()
         
         
@@ -216,48 +221,101 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate{
         dateTextField.text = dateFormatter.string(from: datePicker.date)
         
         
-       
-   
+        
+        
         let formartter = DateFormatter()
-            formartter.dateFormat = "hh:mm"
+        formartter.dateFormat = "hh:mm"
         
         if inTime.isFirstResponder{
-        inTime.text = "\(formartter.string(from: inTimePicker.date))"
+            
+            inTime.text = "\(formartter.string(from: inTimePicker.date))"
+            
         }else if outTime.isFirstResponder{
-        outTime.text = "\(formartter.string(from: outTimePicker.date))"
+            
+            outTime.text = "\(formartter.string(from: outTimePicker.date))"
+            
         }
-   
+        
+        
         // キーボードを閉じる
         self.view.endEditing(true)
-            
-            
-    
+        
+        
+        
     }
+    
+    
     
     //
     @objc func dateChange(){
-            let formatter = DateFormatter()
-            formatter.dateFormat = "hh:mm"
+        let formatter = DateFormatter()
+        formatter.dateFormat = "hh:mm"
         
         inTime.text = "\(formatter.string(from: inTimePicker.date))"
         
         outTime.text = "\(formatter.string(from: outTimePicker.date))"
         
+    }
+    
+    
+    
+    
+    
+    //ピッカーの列数
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        
+        return 1
+    }
+    
+    
+    //ピッカーの行数
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
+        if pickerView == transparencyPicker{
+            
+            return tspy_type.count
+        }else if pickerView == weightPicker{
+            
+            return type.count
+            
         }
+        return 0
+    }
     
     
     
+    // UIPickerViewに表示する配列
+    func pickerView(_ picker: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+        if picker == transparencyPicker {
+            return tspy_type[row] as String
+            
+        }else if picker == weightPicker {
+            
+            return type[row] as String
+            
+        }
+        
+        return ""
+    }
     
     
-//
-//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-//        <#code#>
-//    }
-//
-//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-//        <#code#>
-//    }
-//
+    // UIPickerViewのRowが選択された時の挙動
+    func pickerView(_ picker: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        
+        if picker == transparencyPicker {
+            permeability_typ.text = tspy_type[row]
+            
+        }else if picker == weightPicker{
+            w_type.text = type[row]
+            
+            
+            
+        }
+        
+        
+    }
     
     
     
