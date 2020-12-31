@@ -11,7 +11,6 @@ import FirebaseFirestore
 import FirebaseAuth
 import AVFoundation
 import SwiftGifOrigin
-import APNGKit
 import PKHUD
 
 
@@ -42,8 +41,7 @@ class SelectDayViewController: UIViewController,UITableViewDelegate,UITableViewD
     var db = Firestore.firestore()
     var user = Firebase.Auth.auth().currentUser
 
-    
-    @IBOutlet var backImage: APNGImageView!
+
     
     @IBOutlet var addObj: UIButton!
     

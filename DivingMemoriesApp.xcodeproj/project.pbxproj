@@ -40,11 +40,10 @@
 		3B813AA82561395400E54AE6 /* SendToModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B813AA72561395400E54AE6 /* SendToModel.swift */; };
 		3BA41F28257A735A0014F28E /* SelectDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA41F27257A735A0014F28E /* SelectDayViewController.swift */; };
 		3BA41F51257DFAE70014F28E /* TodoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA41F50257DFAE70014F28E /* TodoData.swift */; };
-		3BA41F61257F36530014F28E /* 海.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3BA41F60257F36520014F28E /* 海.gif */; };
-		3BA41FC0257F68200014F28E /* 海3.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BA41FBF257F681F0014F28E /* 海3.png */; };
 		3BA5E9C9256E805F003CC36E /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA5E9C7256E805F003CC36E /* TodoCell.swift */; };
 		3BA5E9CA256E805F003CC36E /* TodoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BA5E9C8256E805F003CC36E /* TodoCell.xib */; };
 		3BA5E9CE25715B00003CC36E /* AddScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA5E9CD25715B00003CC36E /* AddScheduleViewController.swift */; };
+		3BE93051258E3BA800E4BC51 /* SurroundingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE93050258E3BA800E4BC51 /* SurroundingsViewController.swift */; };
 		3BF55A832573D0D2002D951F /* TodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF55A822573D0D2002D951F /* TodoModel.swift */; };
 		C2F089B952273F551D5E4900 /* Pods_DivingMemoriesApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0AEC5972332A5E2A34E7F99 /* Pods_DivingMemoriesApp.framework */; };
 /* End PBXBuildFile section */
@@ -87,13 +86,12 @@
 		3B813AA72561395400E54AE6 /* SendToModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendToModel.swift; sourceTree = "<group>"; };
 		3BA41F27257A735A0014F28E /* SelectDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDayViewController.swift; sourceTree = "<group>"; };
 		3BA41F50257DFAE70014F28E /* TodoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoData.swift; sourceTree = "<group>"; };
-		3BA41F60257F36520014F28E /* 海.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "海.gif"; sourceTree = "<group>"; };
-		3BA41FBF257F681F0014F28E /* 海3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "海3.png"; sourceTree = "<group>"; };
 		3BA5E9C7256E805F003CC36E /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
 		3BA5E9C8256E805F003CC36E /* TodoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoCell.xib; sourceTree = "<group>"; };
 		3BA5E9CD25715B00003CC36E /* AddScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScheduleViewController.swift; sourceTree = "<group>"; };
 		3BCF042C2547CCD400681428 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		3BCF042D2547CCD700681428 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		3BE93050258E3BA800E4BC51 /* SurroundingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurroundingsViewController.swift; sourceTree = "<group>"; };
 		3BF55A822573D0D2002D951F /* TodoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoModel.swift; sourceTree = "<group>"; };
 		CE6D3C07C255D5E0E1BF3F53 /* Pods-DivingMemoriesApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DivingMemoriesApp.debug.xcconfig"; path = "Target Support Files/Pods-DivingMemoriesApp/Pods-DivingMemoriesApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D0AEC5972332A5E2A34E7F99 /* Pods_DivingMemoriesApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DivingMemoriesApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,8 +148,6 @@
 				3B28422E253BDE53006ED973 /* DivingMemoriesApp.entitlements */,
 				3B284214253BD60C006ED973 /* Info.plist */,
 				3B284231253C086C006ED973 /* GoogleService-Info.plist */,
-				3BA41F60257F36520014F28E /* 海.gif */,
-				3BA41FBF257F681F0014F28E /* 海3.png */,
 			);
 			path = DivingMemoriesApp;
 			sourceTree = "<group>";
@@ -200,10 +196,11 @@
 				3B32EB26254AFE71002A688D /* WebViewController.swift */,
 				3B7FF20E253FE3DB0097AAF7 /* SearchViewController.swift */,
 				3B8077712556EA8F00AE69ED /* RecommendedViewController.swift */,
-				3B80D4532557BC2B0070A4C1 /* Surrounding_MealsViewController.swift */,
-				3B80D45F2557D0760070A4C1 /* DetailViewController.swift */,
 				3B3F2C2E258518CE008606AD /* Recommended2ViewController.swift */,
 				3B3F2C31258518EC008606AD /* Recommended3ViewController.swift */,
+				3B80D4532557BC2B0070A4C1 /* Surrounding_MealsViewController.swift */,
+				3B80D45F2557D0760070A4C1 /* DetailViewController.swift */,
+				3BE93050258E3BA800E4BC51 /* SurroundingsViewController.swift */,
 			);
 			path = SearchView;
 			sourceTree = "<group>";
@@ -338,11 +335,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BA41FC0257F68200014F28E /* 海3.png in Resources */,
 				3B79C51F25417E6600555633 /* MessageCell.xib in Resources */,
 				3B284213253BD60C006ED973 /* LaunchScreen.storyboard in Resources */,
 				3BA5E9CA256E805F003CC36E /* TodoCell.xib in Resources */,
-				3BA41F61257F36530014F28E /* 海.gif in Resources */,
 				3B284210253BD60C006ED973 /* Assets.xcassets in Resources */,
 				3B2CBB402544376100775BF5 /* SendCell.xib in Resources */,
 				3B284232253C086D006ED973 /* GoogleService-Info.plist in Resources */,
@@ -423,6 +418,7 @@
 				3B7FF212253FE3F00097AAF7 /* ChatViewController.swift in Sources */,
 				3B284209253BD608006ED973 /* SceneDelegate.swift in Sources */,
 				3B79C516254153FE00555633 /* ChatRoomViewController.swift in Sources */,
+				3BE93051258E3BA800E4BC51 /* SurroundingsViewController.swift in Sources */,
 				3B32EB27254AFE71002A688D /* WebViewController.swift in Sources */,
 				3B813AA42561297200E54AE6 /* CheckPermission.swift in Sources */,
 				3B813AA82561395400E54AE6 /* SendToModel.swift in Sources */,

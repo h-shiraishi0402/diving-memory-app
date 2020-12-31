@@ -11,7 +11,6 @@ import CalculateCalendarLogic
 import Firebase
 import FirebaseFirestore
 import FirebaseAuth
-import APNGKit
 
 
 let w = UIScreen.main.bounds.size.width
@@ -71,8 +70,7 @@ class HomeViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(Auth.auth().currentUser!.uid)
+       
        
         calendar()
         
