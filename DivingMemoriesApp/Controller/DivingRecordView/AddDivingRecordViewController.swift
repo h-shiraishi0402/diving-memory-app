@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
+import FirebaseAuth
 
 class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
     
@@ -23,7 +26,8 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
     let weightPicker = UIPickerView()
     
     //潜水地
-    @IBOutlet var divingGroundTitle: UITextView!
+    @IBOutlet var divingGroundTitle: UITextField!
+    
     //日付
     @IBOutlet var dateTextField: UITextField!
     //開始時間
@@ -50,6 +54,8 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
     
     var tspy_type = ["ft","m"]
     var type = ["lbs","kg"]
+    
+    var recordeArray = [DivingRecordModel]()
     
     
     
@@ -79,6 +85,10 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
         
         weightPicker.delegate = self
         weightPicker.dataSource = self
+        
+        transparencyPicker.delegate = self
+        transparencyPicker.dataSource = self
+        
         
         
     }
@@ -170,33 +180,17 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
         
         
         //
-        //        //
-        //        OwnedLicenseCreat.inputView = OwnedLiicensePicker
-        //
-        //        let OwnedLiicensetoolbar = UIToolbar()
-        //        OwnedLiicensetoolbar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
-        //
-        //        let OwnedLiicensePickerdone = UIBarButtonItem(title: "完了", style: .done, target: self, action: #selector(SettingViewController.donePicker))
-        //        OwnedLiicensetoolbar.setItems([OwnedLiicensePickerdone], animated: true)
-        //        OwnedLicenseCreat.inputAccessoryView = OwnedLiicensetoolbar
-        //
-        //
-        //
-        //        //
-        //        DivinghistoryCreat.inputView = DivinghistoryPicker
-        //
-        //        let Divinghistorytoolbar = UIToolbar()
-        //        Divinghistorytoolbar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
-        //
-        //        let Divinghistorydone = UIBarButtonItem(title: "完了", style: .done, target: self, action: #selector(SettingViewController.donePicker))
-        //        Divinghistorytoolbar.setItems([Divinghistorydone], animated: true)
-        //        DivinghistoryCreat.inputAccessoryView = Divinghistorytoolbar
-        //
-        //
+        permeability_typ.inputView = transparencyPicker
+        
+        let permeability_typtoolbar = UIToolbar()
+        permeability_typtoolbar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
+        
+        let permeability_typdone = UIBarButtonItem(title: "完了", style: .done, target: self, action: #selector(AddDivingRecordViewController.doneClicked))
+        permeability_typtoolbar.setItems([permeability_typdone], animated: true)
+        permeability_typ.inputAccessoryView = permeability_typtoolbar
         
         
-        
-        
+      
         
         
         
@@ -236,7 +230,7 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
             
         }
         
-        
+    
         // キーボードを閉じる
         self.view.endEditing(true)
         
@@ -271,10 +265,11 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
     //ピッカーの行数
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
-        if pickerView == transparencyPicker{
+        if pickerView == transparencyPicker {
             
             return tspy_type.count
-        }else if pickerView == weightPicker{
+            
+        } else if pickerView == weightPicker {
             
             return type.count
             
@@ -319,11 +314,40 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
     
     
     
+
+   
     
-    @IBAction func back(_ sender: Any) {
+    @IBAction func finish(_ sender: Any) {
+        
+         let df = DateFormatter()
+        df.dateFormat = "yyyy月MM日dd"
+        
+        let db = Firebase.Firestore.firestore()
+        db.collection("DivingRecord").document().setData([
+            "crateTime":Date().timeIntervalSince1970,
+            "creteTime_02":df.string(from: Date()),
+            "divingGroundTitle":divingGroundTitle.text! as String,
+            "dateTextField":dateTextField.text! as String,
+            "inTime":inTime.text! as String,
+            "outTime":outTime.text! as String,
+            "startingPressure":startingPressure.text! as String,
+            "endPressure":endPressure.text! as String,
+            "airTemperature":airTemperature.text! as String,
+            "waterTemperature":waterTemperature.text! as String,
+            "transparency":transparency.text! as String,
+            "transparency_type":permeability_typ.text! as String,
+            "weight":weight.text! as String,
+            "weight_type":w_type.text! as String,
+         
+        
+        ])
         
         dismiss(animated: true, completion: nil)
+
+
+
     }
+    
     
     
 }

@@ -38,6 +38,7 @@
 		3B80D4602557D0760070A4C1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B80D45F2557D0760070A4C1 /* DetailViewController.swift */; };
 		3B813AA42561297200E54AE6 /* CheckPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B813AA32561297200E54AE6 /* CheckPermission.swift */; };
 		3B813AA82561395400E54AE6 /* SendToModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B813AA72561395400E54AE6 /* SendToModel.swift */; };
+		3B87F77725A708C2008CB2F5 /* DivingRecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87F77625A708C2008CB2F5 /* DivingRecordModel.swift */; };
 		3BA41F28257A735A0014F28E /* SelectDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA41F27257A735A0014F28E /* SelectDayViewController.swift */; };
 		3BA41F51257DFAE70014F28E /* TodoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA41F50257DFAE70014F28E /* TodoData.swift */; };
 		3BA5E9C9256E805F003CC36E /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA5E9C7256E805F003CC36E /* TodoCell.swift */; };
@@ -84,6 +85,7 @@
 		3B80D45F2557D0760070A4C1 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		3B813AA32561297200E54AE6 /* CheckPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPermission.swift; sourceTree = "<group>"; };
 		3B813AA72561395400E54AE6 /* SendToModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendToModel.swift; sourceTree = "<group>"; };
+		3B87F77625A708C2008CB2F5 /* DivingRecordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivingRecordModel.swift; sourceTree = "<group>"; };
 		3BA41F27257A735A0014F28E /* SelectDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDayViewController.swift; sourceTree = "<group>"; };
 		3BA41F50257DFAE70014F28E /* TodoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoData.swift; sourceTree = "<group>"; };
 		3BA5E9C7256E805F003CC36E /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				3B813AA72561395400E54AE6 /* SendToModel.swift */,
 				3BF55A822573D0D2002D951F /* TodoModel.swift */,
 				3BA41F50257DFAE70014F28E /* TodoData.swift */,
+				3B87F77625A708C2008CB2F5 /* DivingRecordModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				3B7FF215253FE45E0097AAF7 /* DivingRecordViewController.swift in Sources */,
 				3B79C5132541454800555633 /* SettingViewController.swift in Sources */,
 				3B3F2C32258518EC008606AD /* Recommended3ViewController.swift in Sources */,
+				3B87F77725A708C2008CB2F5 /* DivingRecordModel.swift in Sources */,
 				3BA5E9CE25715B00003CC36E /* AddScheduleViewController.swift in Sources */,
 				3B7FF20F253FE3DB0097AAF7 /* SearchViewController.swift in Sources */,
 				3B80D4542557BC2B0070A4C1 /* Surrounding_MealsViewController.swift in Sources */,
