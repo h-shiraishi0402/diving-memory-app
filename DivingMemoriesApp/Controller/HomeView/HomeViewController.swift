@@ -19,11 +19,6 @@ let h = UIScreen.main.bounds.size.height
 class HomeViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSource,FSCalendarDelegateAppearance,UITextViewDelegate,ProfileString{
 
     
-    
-    
-    
-    
-    
     var settingViewController = SettingViewController()
     var sendToModel = SendToModel()
     var selectDayViewController = SelectDayViewController()
@@ -37,13 +32,9 @@ class HomeViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSour
  
     
     @IBOutlet weak var HomeViewCalender: FSCalendar!
-    
     @IBOutlet var image: UIImageView!
-    
     @IBOutlet var nikNmaeLabel: UILabel!
-    
     @IBOutlet var licenseLabel: UILabel!
-    
     @IBOutlet var HomeImage: UIImageView!
     
     
@@ -56,16 +47,8 @@ class HomeViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSour
     //日付の表示
     let Date = UILabel(frame: CGRect(x: 5, y: 430, width: 200, height: 100))
     
-    //↑一旦決めうち
-    
-    
-    
     var todoValue = TodoModel()
     var todoArray = [TodoModel]()
-    
-    
-    
-    
     var titleArray = [String]()
     
     override func viewDidLoad() {
@@ -153,38 +136,17 @@ class HomeViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSour
     }
     //日付タップ時の処理
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        
-        
-      
-        
+
         
         let selectedDate =  getDay(date)
-       
-        
         
         todoValue.date = "\(selectedDate)"
-     
-        
         selectYear = selectedDate.0
         selectMounth = selectedDate.1
         selectDay = selectedDate.2
-        
         print("aaaaaaaaaaaaaaaaaaa\(selectYear)年\(selectMounth)月\(selectDay)日")
-        
-        
-//        var selectDay = Int()
-//        var selectYear = Int()
-//        var selectMounth = Int()
-//
-//
-        
-        
-        
-        
+
         performSegue(withIdentifier: "TodoVc", sender: nil)
-        
-        
-        
         
     }
    
@@ -205,8 +167,6 @@ class HomeViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSour
         HomeViewCalender.delegate = self
         HomeViewCalender.dataSource = self
     }
-    
-    
     
     
     //セッティング画面に遷移（後ほど改名）
@@ -295,27 +255,7 @@ class HomeViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSour
             image.layer.cornerRadius = image.frame.size.width * 0.5
             image.clipsToBounds = true
             
-            
-            
-            
+    
         }
-        
-        
-        
     }
-    
-    
-    
-    
-   
-    
-//    //func estimateFramefromTextView(text:String) -> CGRect{
-//
-//        let size = CGSize(width: 200, height: 1000)
-//        let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
-//
-//        return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize:14)], context: nil)
-//
-//    }
-    
 }
