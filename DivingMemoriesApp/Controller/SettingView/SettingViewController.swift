@@ -89,8 +89,8 @@ class SettingViewController:UIViewController,UITextFieldDelegate, UIPickerViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("viewDidLoad_START***********************")
-        
+       
+        //ナビゲーションバーを消す
         self.navigationController?.isNavigationBarHidden = true
         
         
@@ -156,7 +156,6 @@ class SettingViewController:UIViewController,UITextFieldDelegate, UIPickerViewDe
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        //NicknameCreat.keyboardType = .default
         
     }
     
@@ -255,8 +254,7 @@ class SettingViewController:UIViewController,UITextFieldDelegate, UIPickerViewDe
     
     //完了時
     @IBAction func FinishButton(_ sender: Any) {
-        //Log用
-        print("FinishButton_START***********************")
+
         
         if let image = profileImage.image{
             
@@ -280,13 +278,13 @@ class SettingViewController:UIViewController,UITextFieldDelegate, UIPickerViewDe
             
             
             
-            
+            //戻る
             dismiss(animated: true, completion: nil)
             
-            
+            //振動させる
             grt.notificationOccurred(.error)
         }
-        print("FinishButton_END***********************")
+ 
         
         
     }
@@ -298,15 +296,11 @@ class SettingViewController:UIViewController,UITextFieldDelegate, UIPickerViewDe
     
     //Firebaseに送信
     func Send_DB(){
-        //Log用
-        print("func Send_DB_START***********************")
+    
+     
         
         HUD.show(.progress)
-        
-        //値をDBに送信する
-        //        Auth.auth().createUser(withEmail: EmailAddressCreat.text!, password: PasswordCreat.text!)
-        //
-        
+ 
         
         CreatUserDB.collection("Profile").document("\(String(describing: Auth.auth().currentUser?.uid))").setData(
             
@@ -322,11 +316,10 @@ class SettingViewController:UIViewController,UITextFieldDelegate, UIPickerViewDe
         
         
         
-        print("func Send_DB_END***********************")
+     
         
         
     }
-    
     
     
     //空白判定andアプリ内に保存
@@ -403,7 +396,7 @@ class SettingViewController:UIViewController,UITextFieldDelegate, UIPickerViewDe
     }
     
     
-    
+    //ピッカーの作成
     func createPickerView() {
         
         /*
@@ -467,7 +460,7 @@ class SettingViewController:UIViewController,UITextFieldDelegate, UIPickerViewDe
     //ピッカーを押したらの挙動
     @objc func donePicker(picker: UIPickerView) {
         //pickerを押したときの挙動
-        print("donePicker_START***********************")
+
         
         if picker == AgePicker {
             AgeCreat.endEditing(true)
@@ -490,21 +483,19 @@ class SettingViewController:UIViewController,UITextFieldDelegate, UIPickerViewDe
             DivinghistoryCreat.endEditing(false)
             
         }
-        print("donePicker_END***********************")
+    
     }
     
     
     // UIPickerViewの列の数
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        print("numberOfComponents_START***********************")
-        print("---------------------------------")
-        print("numberOfComponents_END***********************")
+     
         return 1
     }
     
     //ピッカーの行数
     func pickerView(_ picker: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        print("numberOfComponents_START***********************")
+
         
         if picker == AgePicker {
             return ageArray.count
@@ -522,9 +513,7 @@ class SettingViewController:UIViewController,UITextFieldDelegate, UIPickerViewDe
             
         }
         
-        
-        print("-----------\(Count)----------------------")
-        print("numberOfComponents_END***********************")
+      
         return Count
         
         
@@ -533,7 +522,7 @@ class SettingViewController:UIViewController,UITextFieldDelegate, UIPickerViewDe
     
     // UIPickerViewに表示する配列
     func pickerView(_ picker: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        print("titleForRow, forComponent_START***********************")
+
         
         
         if picker == AgePicker{
@@ -556,30 +545,15 @@ class SettingViewController:UIViewController,UITextFieldDelegate, UIPickerViewDe
             return DivinghistoryArray[row] as String
             
         }
-        print("titleForRow, forComponent_END***********************")
+
         
         return pickerCount
     }
     
-    
-    //ログアウト
-    @IBAction func logOut(_ sender: Any) {
-        do {
-            try Auth.auth().signOut()
-            performSegue(withIdentifier: "LogOut", sender: nil)
-        } catch let err {
-            print(err)
-        }
-        
-        
-    }
-    
-    
-    
-    
+
     // UIPickerViewのRowが選択された時の挙動
     func pickerView(_ picker: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print(" didSelectRow, inComponent_START***********************")
+   
         
         if picker == AgePicker {
             AgeCreat.text = ageArray[row]
@@ -599,12 +573,12 @@ class SettingViewController:UIViewController,UITextFieldDelegate, UIPickerViewDe
             
             
         }
-        print(" didSelectRow, inComponent_END***********************")
+     
         
     }
     
     
-    
+    //戻る
     @IBAction func back(_ sender: Any) {
         
         dismiss(animated: true, completion: nil)
@@ -614,11 +588,11 @@ class SettingViewController:UIViewController,UITextFieldDelegate, UIPickerViewDe
     
     //キーボードEnterで閉じる
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("textFieldShouldReturn_Strat***********************")
+     
         
         textField.resignFirstResponder()
         
-        print("textFieldShouldReturn_END*************************")
+       
         return true
         
     }
@@ -627,9 +601,20 @@ class SettingViewController:UIViewController,UITextFieldDelegate, UIPickerViewDe
     //キーボードタッチで閉じる
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
-        print("touchesBegan_START***********************")
+      
         
-        print("touchesBegan_END*************************")
+    }
+    
+    
+    //ログアウト
+    @IBAction func logOut(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+            performSegue(withIdentifier: "LogOut", sender: nil)
+        } catch let err {
+            print(err)
+        }
+        
         
     }
     

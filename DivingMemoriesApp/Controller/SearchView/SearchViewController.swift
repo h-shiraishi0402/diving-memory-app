@@ -12,20 +12,6 @@ class SearchViewController: UIViewController, UITableViewDelegate,UITableViewDat
     
     
     
-    /*
-     12/9に再構築・修正の着手
-     
-     
-     セクション減らすか・・
-     アイディア必要
-     
-     ・ニュース（ダイビングに絞る）
-     　思った以上ダイビングに関わる記事がない・・ってかヤフーのAPI変えるか・・・・
-     ・おすすめスポット
-     ・おすすめショップ
-     
-     
-     */
     
     
     
