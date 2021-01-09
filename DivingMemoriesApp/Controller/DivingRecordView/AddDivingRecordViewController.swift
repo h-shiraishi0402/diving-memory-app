@@ -27,7 +27,6 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
     
     //潜水地
     @IBOutlet var divingGroundTitle: UITextField!
-    
     //日付
     @IBOutlet var dateTextField: UITextField!
     //開始時間
@@ -63,25 +62,38 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
         super.viewDidLoad()
         
         
-        divingGroundTitle.layer.cornerRadius = 20
+        
+        divingGroundTitle.layer.cornerRadius = 5
         divingGroundTitle.clipsToBounds = true
+        divingGroundTitle.placeholder = "入力してください"
+        
+        
         dateTextField.delegate = self
+        dateTextField.placeholder = "入力してください"
         
         inTime.delegate = self
+        inTime.placeholder = "入力してください"
         
         outTime.delegate = self
+        outTime.placeholder = "入力してください"
         
         startingPressure.delegate = self
+        startingPressure.placeholder = "入力してください"
         
         endPressure.delegate = self
+        endPressure.placeholder = "入力してください"
         
         airTemperature.delegate = self
+        airTemperature.placeholder = "入力してください"
         
         waterTemperature.delegate = self
+        waterTemperature.placeholder = "入力してください"
         
         transparency.delegate = self
+        transparency.placeholder = "入力してください"
         
         weight.delegate = self
+        weight.placeholder = "入力してください"
         
         weightPicker.delegate = self
         weightPicker.dataSource = self
@@ -98,6 +110,7 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
         super.viewWillAppear(animated)
         
         createPicker()
+        
         
     }
     
@@ -190,7 +203,7 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
         permeability_typ.inputAccessoryView = permeability_typtoolbar
         
         
-      
+        
         
         
         
@@ -230,7 +243,7 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
             
         }
         
-    
+        
         // キーボードを閉じる
         self.view.endEditing(true)
         
@@ -246,7 +259,6 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
         formatter.dateFormat = "hh:mm"
         
         inTime.text = "\(formatter.string(from: inTimePicker.date))"
-        
         outTime.text = "\(formatter.string(from: outTimePicker.date))"
         
     }
@@ -257,14 +269,12 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
     
     //ピッカーの列数
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        
         return 1
     }
     
     
     //ピッカーの行数
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        
         if pickerView == transparencyPicker {
             
             return tspy_type.count
@@ -298,14 +308,11 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
     // UIPickerViewのRowが選択された時の挙動
     func pickerView(_ picker: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        
         if picker == transparencyPicker {
             permeability_typ.text = tspy_type[row]
             
         }else if picker == weightPicker{
             w_type.text = type[row]
-            
-            
             
         }
         
@@ -314,12 +321,12 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
     
     
     
-
-   
+    
+    
     
     @IBAction func finish(_ sender: Any) {
         
-         let df = DateFormatter()
+        let df = DateFormatter()
         df.dateFormat = "yyyy月MM日dd"
         
         let db = Firebase.Firestore.firestore()
@@ -338,14 +345,14 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
             "transparency_type":permeability_typ.text! as String,
             "weight":weight.text! as String,
             "weight_type":w_type.text! as String,
-         
-        
+            
+            
         ])
         
         dismiss(animated: true, completion: nil)
-
-
-
+        
+        
+        
     }
     
     
