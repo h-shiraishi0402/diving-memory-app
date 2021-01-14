@@ -24,7 +24,7 @@
                                 <rect key="frame" x="100" y="120" width="188" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="※一時的にホーム画面へ"/>
                                 <connections>
                                     <action selector="login:" destination="Bv4-2T-YYv" eventType="touchUpInside" id="HQ2-nz-a5y"/>
                                     <segue destination="8ec-S9-V7h" kind="presentation" id="K6k-eI-F4W"/>
@@ -511,8 +511,6 @@
                     <connections>
                         <outlet property="newsTableView" destination="vNX-BZ-oZT" id="eTf-z4-pfK"/>
                         <segue destination="gEZ-Tm-1oc" kind="presentation" identifier="NextView01" id="94g-dp-W0b"/>
-                        <segue destination="64f-16-cUm" kind="presentation" identifier="NextView02" id="6rK-1l-muc"/>
-                        <segue destination="vi4-0P-cUd" kind="presentation" identifier="NextView03" id="B2T-b7-nBM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3f2-wX-ESz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -522,7 +520,7 @@
         <!--Recommended View Controller-->
         <scene sceneID="PYb-k1-pDf">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="gEZ-Tm-1oc" customClass="RecommendedViewController" customModule="DivingMemoriesApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NextView01" modalPresentationStyle="fullScreen" id="gEZ-Tm-1oc" customClass="RecommendedViewController" customModule="DivingMemoriesApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pqp-Jc-F0l">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -618,6 +616,7 @@
                                 <state key="normal" image="listIcon-App-83.5x83.5"/>
                                 <connections>
                                     <action selector="Surrounding_Meals:" destination="gEZ-Tm-1oc" eventType="touchUpInside" id="Reu-H0-1f8"/>
+                                    <segue destination="lDY-ct-85K" kind="presentation" id="zOc-Sa-9BU"/>
                                 </connections>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="LYn-3H-JzH">
@@ -652,6 +651,7 @@
                     <navigationItem key="navigationItem" id="U8r-go-I4u"/>
                     <connections>
                         <outlet property="addressLabel" destination="0El-bN-WvZ" id="rxS-5T-Nh3"/>
+                        <outlet property="backImageView" destination="eKu-6V-8Q5" id="Wqz-Su-2Ak"/>
                         <outlet property="backObj" destination="uXb-Al-ryL" id="ddj-xX-1i5"/>
                         <outlet property="imageScrollView" destination="Xgy-tY-wMW" id="D5p-Cm-VJY"/>
                         <outlet property="imageScrollView2" destination="Xgy-tY-wMW" id="Gt3-PI-dW6"/>
@@ -754,7 +754,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BSx-bW-Wsu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7" y="3046"/>
+            <point key="canvasLocation" x="-84" y="2887"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="ZeS-h1-8u3">
@@ -788,7 +788,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Elh-CG-Dbw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="700" y="3046"/>
+            <point key="canvasLocation" x="622" y="2882"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="I3E-gg-abl">
@@ -1910,35 +1910,55 @@
             <objects>
                 <viewController id="lDY-ct-85K" customClass="SurroundingsViewController" customModule="DivingMemoriesApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ss7-O9-sxA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jyf-do-Gqq">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rK5-C0-Uzv">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="qZo-Q1-RtV">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qZo-Q1-RtV" id="Me1-0e-M5f">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3vF-jK-9kA">
+                                <rect key="frame" x="20" y="36" width="374" height="103"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="ショップ"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8n-Ew-hNQ">
+                                <rect key="frame" x="20" y="162" width="374" height="103"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="食事"/>
+                                <connections>
+                                    <segue destination="thj-HL-nSG" kind="show" id="E56-nn-Mfo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNg-U6-qTu">
+                                <rect key="frame" x="20" y="288" width="374" height="103"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="天気"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BVn-w7-aGc">
+                                <rect key="frame" x="20" y="417" width="374" height="103"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="宿泊"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ohf-tQ-ePf">
+                                <rect key="frame" x="20" y="547" width="374" height="103"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="その他"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0dT-MM-hvx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <connections>
-                        <outlet property="tableView" destination="jyf-do-Gqq" id="EjZ-3A-HaI"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="deF-rv-FS5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BWn-IZ-JcB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-952" y="3046"/>
+            <point key="canvasLocation" x="-1001.4492753623189" y="2882.1428571428569"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

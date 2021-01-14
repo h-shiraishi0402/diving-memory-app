@@ -40,18 +40,28 @@ class RecommendedViewController: UIViewController,UIScrollViewDelegate {
     @IBOutlet var backObj: UIButton!
     @IBOutlet var serchObj: UIButton!
     
+    @IBOutlet var backImageView: UIImageView!
     
     
     var latitudeValue = Double()
     var longitudeValue = Double()
+   
+    
+    
+    var backImageArray = [["sea-3188766_1920"],["平石崎マンタスクランブル2"],[""]]
+    var imageArray = [["小笠原1","小笠原2","小笠原3"],["平石崎マンタスクランブル2","平石崎マンタスクランブル1","平石崎マンタスクランブル3"],["","",""]]
+    var labelNameArray = [["ボニンブルー 小笠原諸島"],["川平石崎マンタスクランブル"],[""]]
+    var addressArray = [["〒100-2101 東京都小笠原村父島東町"],["〒907-0453 沖縄県石垣市川平"],[""]]
     
     
     
-    var imageArray = ["小笠原1","小笠原2","小笠原3"]
-    var labelNameArray = ["ボニンブルー 小笠原諸島","aaaaaaaaa","1111111111"]
-    var addressArray = ["〒100-2101 東京都小笠原村父島東町","",""]
     
     
+    var tagNum:Int?
+    var backImageArrayNum = Int()
+    var imageArrayNum = Int()
+    var labelNameArrayNUm = Int()
+    var addressArrayNum = Int()
     
     
     
@@ -62,10 +72,40 @@ class RecommendedViewController: UIViewController,UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        nameLabel.text = labelNameArray[0]
+        
+        self.view.tag = tagNum!
+        
+        if view.tag == 0{
+            backImageArrayNum = 0
+            imageArrayNum = 0
+            labelNameArrayNUm = 0
+            addressArrayNum = 0
+            backImageView.image = UIImage(named: backImageArray[0][0])
+            
+        }else if view.tag == 1{
+            backImageArrayNum = 1
+            imageArrayNum = 1
+            labelNameArrayNUm = 1
+            addressArrayNum = 1
+            backImageView.image = UIImage(named: backImageArray[1][0])
+        }else if view.tag == 2{
+            backImageArrayNum = 2
+            imageArrayNum = 2
+            labelNameArrayNUm = 2
+            addressArrayNum = 2
+            backImageView.image = UIImage(named: backImageArray[2][0])
+        }
+        
+        
+        
+        
+
+        print(self.view.tag)
+        
+        nameLabel.text = labelNameArray[labelNameArrayNUm][0]
         nameLabel.layer.cornerRadius = 20
         nameLabel.clipsToBounds = true
-        addressLabel.text = addressArray[0]
+        addressLabel.text = addressArray[labelNameArrayNUm][0]
         addressLabel.layer.cornerRadius = 20
         addressLabel.clipsToBounds = true
         
@@ -95,13 +135,13 @@ class RecommendedViewController: UIViewController,UIScrollViewDelegate {
                self.view.addSubview(imageScrollView2)
                
                // scrollView上にUIImageViewをページ分追加する(今回は3ページ分)
-        let imageView1 = createImageView(x: 0, y: 0, width: self.view.frame.size.width, height: imageScrollView2.frame.height, image: imageArray[0])
+        let imageView1 = createImageView(x: 0, y: 0, width: self.view.frame.size.width, height: imageScrollView2.frame.height, image: imageArray[imageArrayNum][0])
         imageScrollView2.addSubview(imageView1)
                
-               let imageView2 = createImageView(x: self.view.frame.size.width, y: 0, width: self.view.frame.size.width, height: imageScrollView2.frame.height, image: imageArray[1])
+               let imageView2 = createImageView(x: self.view.frame.size.width, y: 0, width: self.view.frame.size.width, height: imageScrollView2.frame.height, image: imageArray[imageArrayNum][1])
         imageScrollView2.addSubview(imageView2)
                
-               let imageView3 = createImageView(x: self.view.frame.size.width * 2, y: 0, width: self.view.frame.size.width, height: imageScrollView2.frame.height, image: imageArray[2])
+               let imageView3 = createImageView(x: self.view.frame.size.width * 2, y: 0, width: self.view.frame.size.width, height: imageScrollView2.frame.height, image: imageArray[imageArrayNum][2])
         imageScrollView2.addSubview(imageView3)
 
         
@@ -121,7 +161,6 @@ class RecommendedViewController: UIViewController,UIScrollViewDelegate {
     
     
     
-
     
     
     

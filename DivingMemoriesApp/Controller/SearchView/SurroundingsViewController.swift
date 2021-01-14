@@ -35,8 +35,7 @@ class SurroundingsViewController: UIViewController,UITableViewDelegate,UITableVi
    
     
 
-    
-    @IBOutlet var tableView: UITableView!
+
     
     var cellNameArray = ["weather","","",""]
     
@@ -45,8 +44,7 @@ class SurroundingsViewController: UIViewController,UITableViewDelegate,UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.delegate = self
-        tableView.dataSource = self
+ 
         
         
         

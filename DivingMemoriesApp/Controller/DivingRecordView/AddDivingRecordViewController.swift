@@ -329,7 +329,7 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
         let df = DateFormatter()
         df.dateFormat = "yyyy月MM日dd"
         
-        let db = Firebase.Firestore.firestore()
+        let db = Firestore.firestore()
         db.collection("DivingRecord").document().setData([
             "crateTime":Date().timeIntervalSince1970,
             "creteTime_02":df.string(from: Date()),
@@ -353,6 +353,15 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
         
         
         
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        let dateFormatter = DateFormatter()
+        let date2 = dateFormatter.date(from: inTime.text!)
+        
+        
+        return true
     }
     
     
