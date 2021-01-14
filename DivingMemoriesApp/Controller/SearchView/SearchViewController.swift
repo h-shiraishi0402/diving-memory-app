@@ -267,10 +267,10 @@ class SearchViewController: UIViewController, UITableViewDelegate,UITableViewDat
                 indexNum = 0
                 performSegue(withIdentifier: "NextView01", sender: nil)
             }else if indexPath.row == 2{
-                indexNum = 2
+                indexNum = 1
                 performSegue(withIdentifier: "NextView01", sender: nil)
             }else if indexPath.row == 4{
-                indexNum = 4
+                indexNum = 2
                 performSegue(withIdentifier: "NextView01", sender: nil)
                 
             }

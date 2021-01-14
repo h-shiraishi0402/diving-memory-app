@@ -25,14 +25,14 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
 
   
-        print("（１）あいうえおかきくけこさしすせそ[\(url)]")
+  
         
         //リクエスト
         let reqest = URLRequest(url: URL(string: url)!)
         webView.load(reqest)
             
             
-        print("（２）あいうえおかきくけこさしすせそ[\(url)]")
+      
     }
 
     }

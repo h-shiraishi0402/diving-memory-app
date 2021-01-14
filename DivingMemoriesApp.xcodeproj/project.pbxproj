@@ -20,8 +20,6 @@
 		3B2CBB402544376100775BF5 /* SendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B2CBB3E2544376100775BF5 /* SendCell.xib */; };
 		3B32EB1F254865EA002A688D /* NewsXmlModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32EB1E254865EA002A688D /* NewsXmlModel.swift */; };
 		3B32EB27254AFE71002A688D /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32EB26254AFE71002A688D /* WebViewController.swift */; };
-		3B3F2C2F258518D0008606AD /* Recommended2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F2C2E258518CE008606AD /* Recommended2ViewController.swift */; };
-		3B3F2C32258518EC008606AD /* Recommended3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F2C31258518EC008606AD /* Recommended3ViewController.swift */; };
 		3B79C5132541454800555633 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B79C5122541454800555633 /* SettingViewController.swift */; };
 		3B79C516254153FE00555633 /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B79C515254153FE00555633 /* ChatRoomViewController.swift */; };
 		3B79C51A25416EA500555633 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B79C51925416EA500555633 /* MessageModel.swift */; };
@@ -67,8 +65,6 @@
 		3B2CBB3E2544376100775BF5 /* SendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SendCell.xib; sourceTree = "<group>"; };
 		3B32EB1E254865EA002A688D /* NewsXmlModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsXmlModel.swift; sourceTree = "<group>"; };
 		3B32EB26254AFE71002A688D /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
-		3B3F2C2E258518CE008606AD /* Recommended2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommended2ViewController.swift; sourceTree = "<group>"; };
-		3B3F2C31258518EC008606AD /* Recommended3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommended3ViewController.swift; sourceTree = "<group>"; };
 		3B79C5122541454800555633 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		3B79C515254153FE00555633 /* ChatRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomViewController.swift; sourceTree = "<group>"; };
 		3B79C51925416EA500555633 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
@@ -199,8 +195,6 @@
 				3B32EB26254AFE71002A688D /* WebViewController.swift */,
 				3B7FF20E253FE3DB0097AAF7 /* SearchViewController.swift */,
 				3B8077712556EA8F00AE69ED /* RecommendedViewController.swift */,
-				3B3F2C2E258518CE008606AD /* Recommended2ViewController.swift */,
-				3B3F2C31258518EC008606AD /* Recommended3ViewController.swift */,
 				3B80D4532557BC2B0070A4C1 /* Surrounding_MealsViewController.swift */,
 				3B80D45F2557D0760070A4C1 /* DetailViewController.swift */,
 				3BE93050258E3BA800E4BC51 /* SurroundingsViewController.swift */,
@@ -399,7 +393,6 @@
 			files = (
 				3B7FF215253FE45E0097AAF7 /* DivingRecordViewController.swift in Sources */,
 				3B79C5132541454800555633 /* SettingViewController.swift in Sources */,
-				3B3F2C32258518EC008606AD /* Recommended3ViewController.swift in Sources */,
 				3B87F77725A708C2008CB2F5 /* DivingRecordModel.swift in Sources */,
 				3BA5E9CE25715B00003CC36E /* AddScheduleViewController.swift in Sources */,
 				3B7FF20F253FE3DB0097AAF7 /* SearchViewController.swift in Sources */,
@@ -408,7 +401,6 @@
 				3B80D4602557D0760070A4C1 /* DetailViewController.swift in Sources */,
 				3BA41F28257A735A0014F28E /* SelectDayViewController.swift in Sources */,
 				3B2CBB3F2544376100775BF5 /* SendCell.swift in Sources */,
-				3B3F2C2F258518D0008606AD /* Recommended2ViewController.swift in Sources */,
 				3B28423B253C17EC006ED973 /* TopViewController.swift in Sources */,
 				3BF55A832573D0D2002D951F /* TodoModel.swift in Sources */,
 				3B32EB1F254865EA002A688D /* NewsXmlModel.swift in Sources */,
