@@ -10,7 +10,7 @@ import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 
-class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
+class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource,UITextViewDelegate{
     
     
     
@@ -24,6 +24,10 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
     let waterTemperaturePicker = UIPickerView()
     let transparencyPicker = UIPickerView()
     let weightPicker = UIPickerView()
+    
+    
+    @IBOutlet var doneButtonObj: UIButton!
+    
     
     //潜水地
     @IBOutlet var divingGroundTitle: UITextField!
@@ -49,6 +53,8 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
     @IBOutlet var weight: UITextField!
     ////ウェイトタイプ
     @IBOutlet var w_type: UITextField!
+    //コメント
+    @IBOutlet var commentTextViewObj: UITextView!
     
     
     var tspy_type = ["ft","m"]
@@ -60,6 +66,11 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        doneButtonObj.layer.cornerRadius = 5
+        doneButtonObj.clipsToBounds = true
+        
         
         
         
@@ -100,6 +111,13 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
         
         transparencyPicker.delegate = self
         transparencyPicker.dataSource = self
+        
+        commentTextViewObj.delegate = self
+        commentTextViewObj.backgroundColor = .white
+        commentTextViewObj.text = "コメント"
+        commentTextViewObj.textColor = UIColor.lightGray
+    
+        
         
         
         
@@ -345,6 +363,7 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
             "transparency_type":permeability_typ.text! as String,
             "weight":weight.text! as String,
             "weight_type":w_type.text! as String,
+            "comment":commentTextViewObj.text! as String
             
             
         ])
@@ -364,7 +383,20 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
         return true
     }
     
-    
+    //テキストビューの編集が開始されたら
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    //テキストビューの編集が終了したら
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "コメント"
+            textView.textColor = UIColor.lightGray
+        }
+    }
     
 }
 
