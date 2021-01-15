@@ -25,7 +25,7 @@ class TodoData {
         
         
         
-    self.uid = document.documentID
+        self.uid = document.documentID
         let docData = document.data()
         title = docData["title"] as? String
         date = docData["date"] as? String

@@ -1217,7 +1217,7 @@
                                 <rect key="frame" x="0.0" y="128" width="414" height="685"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="127" id="wrk-D3-cj8">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="drCell" rowHeight="127" id="wrk-D3-cj8">
                                         <rect key="frame" x="0.0" y="28" width="414" height="127"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wrk-D3-cj8" id="a7W-tR-Kpa">
@@ -1252,6 +1252,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" tag="3" title="ダイビング記録" image="DivingRecord-App-29x29" id="q59-Wc-5aD"/>
                     <navigationItem key="navigationItem" id="ggD-g7-Bcn"/>
+                    <connections>
+                        <outlet property="RecorListTableView" destination="LJi-qc-Qa7" id="A6E-43-dMc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V2S-dq-av7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1260,17 +1263,17 @@
         <!--Add Diving Record View Controller-->
         <scene sceneID="nZc-SN-Hwm">
             <objects>
-                <viewController id="XwG-b5-8Za" customClass="AddDivingRecordViewController" customModule="DivingMemoriesApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="XwG-b5-8Za" customClass="AddDivingRecordViewController" customModule="DivingMemoriesApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zlI-Q3-AQs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lWK-y2-lUl">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hnd-X8-dJA">
-                                <rect key="frame" x="158" y="167" width="237" height="34"/>
+                                <rect key="frame" x="158" y="211" width="237" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -1281,7 +1284,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xgH-oB-44X">
-                                <rect key="frame" x="158" y="213" width="237" height="34"/>
+                                <rect key="frame" x="158" y="257" width="237" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1289,7 +1292,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y2I-zb-epL">
-                                <rect key="frame" x="158" y="257" width="237" height="34"/>
+                                <rect key="frame" x="158" y="301" width="237" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1297,7 +1300,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FZc-ne-dqu">
-                                <rect key="frame" x="157" y="302" width="236" height="34"/>
+                                <rect key="frame" x="157" y="346" width="236" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1305,7 +1308,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ViC-w6-pmG">
-                                <rect key="frame" x="158" y="348" width="236" height="34"/>
+                                <rect key="frame" x="158" y="392" width="236" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1313,7 +1316,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="日付" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FqR-HH-jGc">
-                                <rect key="frame" x="20" y="133" width="130" height="21"/>
+                                <rect key="frame" x="20" y="177" width="130" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="StL-Td-BdE"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="eMY-Ie-j2C"/>
@@ -1323,7 +1326,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IN時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaH-TY-3HA">
-                                <rect key="frame" x="20" y="180" width="130" height="21"/>
+                                <rect key="frame" x="20" y="224" width="130" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Vib-rv-mYS"/>
                                 </constraints>
@@ -1332,25 +1335,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="終了時圧力" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZnE-e1-ghC">
-                                <rect key="frame" x="20" y="311.5" width="365" height="18.5"/>
+                                <rect key="frame" x="20" y="355.5" width="365" height="18.5"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="気温" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YtX-eI-nh2">
-                                <rect key="frame" x="20" y="363.5" width="128" height="18.5"/>
+                                <rect key="frame" x="20" y="407.5" width="128" height="18.5"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OUT時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1dt-mu-zcT">
-                                <rect key="frame" x="20" y="223" width="128" height="18.5"/>
+                                <rect key="frame" x="20" y="267" width="128" height="18.5"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dXl-fz-UGW">
-                                <rect key="frame" x="158" y="395" width="236" height="34"/>
+                                <rect key="frame" x="158" y="439" width="236" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1358,13 +1361,13 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="水温" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lng-yR-8Qg">
-                                <rect key="frame" x="20" y="410.5" width="130" height="18.5"/>
+                                <rect key="frame" x="20" y="454.5" width="130" height="18.5"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IDk-n9-Vue">
-                                <rect key="frame" x="158" y="442" width="178" height="34"/>
+                                <rect key="frame" x="158" y="486" width="178" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1372,13 +1375,13 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="透視度" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sU-2l-w92">
-                                <rect key="frame" x="20" y="455" width="130" height="18.5"/>
+                                <rect key="frame" x="20" y="499" width="130" height="18.5"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T6i-jm-vu2">
-                                <rect key="frame" x="158" y="490" width="178" height="34"/>
+                                <rect key="frame" x="158" y="534" width="178" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1386,7 +1389,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dfy-qQ-xpf">
-                                <rect key="frame" x="344" y="490" width="50" height="34"/>
+                                <rect key="frame" x="344" y="534" width="50" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1394,20 +1397,20 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ウェイト" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwd-8h-PUt">
-                                <rect key="frame" x="20" y="499.5" width="130" height="18.5"/>
+                                <rect key="frame" x="20" y="543.5" width="130" height="18.5"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gia-TF-qbN">
-                                <rect key="frame" x="20" y="549" width="374" height="259"/>
+                                <rect key="frame" x="20" y="593" width="374" height="207"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wtS-8S-8e7">
-                                <rect key="frame" x="344" y="8" width="50" height="50"/>
+                                <rect key="frame" x="344" y="52" width="50" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="LyX-Vz-ZaM"/>
@@ -1423,7 +1426,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="shM-Nb-WQT">
-                                <rect key="frame" x="344" y="442" width="50" height="34"/>
+                                <rect key="frame" x="344" y="486" width="50" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -1434,7 +1437,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eHH-Tt-OAm">
-                                <rect key="frame" x="158" y="121" width="237" height="34"/>
+                                <rect key="frame" x="158" y="165" width="237" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1442,7 +1445,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="潜水地名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fc7-63-bie">
-                                <rect key="frame" x="20" y="66" width="375" height="47"/>
+                                <rect key="frame" x="20" y="110" width="375" height="47"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="qp0-Up-RNQ"/>
@@ -1459,11 +1462,22 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="開始時圧力" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9l-bf-ZQx">
-                                <rect key="frame" x="20" y="265" width="128" height="18.5"/>
+                                <rect key="frame" x="20" y="309" width="128" height="18.5"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eo7-hs-7bp">
+                                <rect key="frame" x="32" y="812" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="0ZP-WZ-3ve"/>
+                                    <constraint firstAttribute="width" constant="50" id="5zN-NF-juS"/>
+                                </constraints>
+                                <state key="normal" image="back-App-76x76"/>
+                                <connections>
+                                    <action selector="back:" destination="XwG-b5-8Za" eventType="touchUpInside" id="cuu-Ij-dxf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CGw-Lh-X7J"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1480,7 +1494,7 @@
                             <constraint firstItem="dfy-qQ-xpf" firstAttribute="leading" secondItem="T6i-jm-vu2" secondAttribute="trailing" constant="8" symbolic="YES" id="BnQ-Cl-36C"/>
                             <constraint firstItem="iaH-TY-3HA" firstAttribute="trailing" secondItem="lng-yR-8Qg" secondAttribute="trailing" id="Brf-Fv-btD"/>
                             <constraint firstItem="eHH-Tt-OAm" firstAttribute="leading" secondItem="FqR-HH-jGc" secondAttribute="trailing" constant="8" id="CNe-cA-CCj"/>
-                            <constraint firstItem="gia-TF-qbN" firstAttribute="bottom" secondItem="CGw-Lh-X7J" secondAttribute="bottom" id="DYN-ir-i2R"/>
+                            <constraint firstItem="gia-TF-qbN" firstAttribute="bottom" secondItem="CGw-Lh-X7J" secondAttribute="bottom" constant="-62" id="DYN-ir-i2R"/>
                             <constraint firstItem="T6i-jm-vu2" firstAttribute="top" secondItem="dfy-qQ-xpf" secondAttribute="top" id="EeL-c6-oDF"/>
                             <constraint firstItem="Fc7-63-bie" firstAttribute="leading" secondItem="FqR-HH-jGc" secondAttribute="leading" id="Eg3-RN-70i"/>
                             <constraint firstItem="Fc7-63-bie" firstAttribute="trailing" secondItem="eHH-Tt-OAm" secondAttribute="trailing" id="EqH-S9-Gpd"/>
@@ -1497,6 +1511,7 @@
                             <constraint firstItem="shM-Nb-WQT" firstAttribute="leading" secondItem="IDk-n9-Vue" secondAttribute="trailing" constant="8" symbolic="YES" id="Ote-cS-lpl"/>
                             <constraint firstItem="1dt-mu-zcT" firstAttribute="top" secondItem="iaH-TY-3HA" secondAttribute="bottom" constant="22" id="Ow1-38-aJs"/>
                             <constraint firstAttribute="trailing" secondItem="lWK-y2-lUl" secondAttribute="trailing" id="PIy-BV-S9Z"/>
+                            <constraint firstAttribute="bottom" secondItem="eo7-hs-7bp" secondAttribute="bottom" constant="34" id="RGj-2T-VGZ"/>
                             <constraint firstItem="2sU-2l-w92" firstAttribute="trailing" secondItem="jwd-8h-PUt" secondAttribute="trailing" id="Rl4-Pe-XXF"/>
                             <constraint firstItem="xgH-oB-44X" firstAttribute="trailing" secondItem="y2I-zb-epL" secondAttribute="trailing" id="S5P-kd-3sk"/>
                             <constraint firstAttribute="trailing" secondItem="wtS-8S-8e7" secondAttribute="trailing" constant="20" id="SUG-EX-6Ci"/>
@@ -1515,6 +1530,7 @@
                             <constraint firstItem="dXl-fz-UGW" firstAttribute="top" secondItem="ViC-w6-pmG" secondAttribute="bottom" constant="13" id="czV-ld-UN0"/>
                             <constraint firstItem="gia-TF-qbN" firstAttribute="top" secondItem="jwd-8h-PUt" secondAttribute="bottom" constant="31" id="d0R-Lc-XCp"/>
                             <constraint firstItem="IDk-n9-Vue" firstAttribute="top" secondItem="shM-Nb-WQT" secondAttribute="top" id="d4C-uj-ty7"/>
+                            <constraint firstItem="eo7-hs-7bp" firstAttribute="leading" secondItem="CGw-Lh-X7J" secondAttribute="leading" constant="32" id="e34-LU-Mu5"/>
                             <constraint firstItem="FZc-ne-dqu" firstAttribute="trailing" secondItem="ViC-w6-pmG" secondAttribute="trailing" constant="-1" id="e4x-YW-UAZ"/>
                             <constraint firstItem="eHH-Tt-OAm" firstAttribute="trailing" secondItem="Hnd-X8-dJA" secondAttribute="trailing" id="eum-0q-bFi"/>
                             <constraint firstItem="IDk-n9-Vue" firstAttribute="leading" secondItem="2sU-2l-w92" secondAttribute="trailing" constant="8" id="fqc-Kc-n2o"/>

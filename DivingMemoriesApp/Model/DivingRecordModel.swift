@@ -6,45 +6,48 @@
 //
 
 import Foundation
+import Firebase
+import FirebaseFirestore
+import FirebaseAuth
 
 
 struct DivingRecordModel {
     
     //潜水地
-    var divingGroundTitle:String
+    var divingGroundTitle = String()
     
     //日付
-    var dateTextField:String
+    var dateTextField = String()
     
     //開始時間
-    var inTime:String
+    var inTime = String()
     
     //終了時間
-    var outTime:String
+    var outTime = String()
     
     //開始圧力
-    var startingPressure:String
+    var startingPressure = String()
     
     //終了圧力
-    var endPressure:String
+    var endPressure = String()
     
     //気温
-    var airTemperature:String
+    var airTemperature = String()
     
     //水温
-    var waterTemperature:String
+    var waterTemperature = String()
     
     //透視度
-    var transparency:String
+    var transparency = String()
     
     //透視度タイプ
-    var permeability_typ:String
+    var permeability_typ = String()
     
     //ウェイト
-    var weight:String
+    var weight = String()
     
     //ウェイトタイプ
-    var w_type:String
+    var w_type = String()
     
 
     

@@ -10,8 +10,18 @@ import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 
+protocol DiviingValue {
+    func diviingValue(set:DivingRecordModel)
+    
+}
+
+
+
 class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource,UITextViewDelegate{
     
+    
+    var diviingSetValue:DiviingValue?
+    var divingRecordModel = DivingRecordModel()
     
     
     let divingGroundTitlePicker = UIPickerView()
@@ -51,7 +61,7 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
     @IBOutlet var permeability_typ: UITextField!
     //ウェイト
     @IBOutlet var weight: UITextField!
-    ////ウェイトタイプ
+    //ウェイトタイプ
     @IBOutlet var w_type: UITextField!
     //コメント
     @IBOutlet var commentTextViewObj: UITextView!
@@ -349,8 +359,8 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
         
         let db = Firestore.firestore()
         db.collection("DivingRecord").document().setData([
-            "crateTime":Date().timeIntervalSince1970,
-            "creteTime_02":df.string(from: Date()),
+            "createTime":Date().timeIntervalSince1970,
+            "createTime_02":df.string(from: Date()),
             "divingGroundTitle":divingGroundTitle.text! as String,
             "dateTextField":dateTextField.text! as String,
             "inTime":inTime.text! as String,
@@ -363,13 +373,18 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
             "transparency_type":permeability_typ.text! as String,
             "weight":weight.text! as String,
             "weight_type":w_type.text! as String,
-            "comment":commentTextViewObj.text! as String
+            "comment":commentTextViewObj.text! as String,
+            "user":Auth.auth().currentUser?.uid as Any,
+            "title":divingGroundTitle.text! as String
             
             
         ])
         
-        dismiss(animated: true, completion: nil)
+        diviingSetValue?.diviingValue(set: divingRecordModel )
         
+        
+        
+        dismiss(animated: true, completion: nil)
         
         
     }
@@ -397,6 +412,11 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
             textView.textColor = UIColor.lightGray
         }
     }
+    
+    @IBAction func back(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     
 }
 
