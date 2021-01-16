@@ -10,7 +10,7 @@
 //
 //class WebViewController: UIViewController,WKUIDelegate {
 //
-//    var webView = WKWebView()
+//      webView = WKWebView()
 //
 //    override func viewDidLoad() {
 //        super.viewDidLoad()
@@ -27,3 +27,8 @@
 //        // Do any additional setup after loading the view.
 //    }
 //}
+
+
+
+
+

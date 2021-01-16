@@ -21,6 +21,7 @@
 		3B32EB1F254865EA002A688D /* NewsXmlModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32EB1E254865EA002A688D /* NewsXmlModel.swift */; };
 		3B32EB27254AFE71002A688D /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32EB26254AFE71002A688D /* WebViewController.swift */; };
 		3B54278525B1603000E02C01 /* DivingRecordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B54278425B1603000E02C01 /* DivingRecordData.swift */; };
+		3B54278D25B1B6BB00E02C01 /* DivingRecordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B54278C25B1B6BB00E02C01 /* DivingRecordDetailViewController.swift */; };
 		3B79C5132541454800555633 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B79C5122541454800555633 /* SettingViewController.swift */; };
 		3B79C516254153FE00555633 /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B79C515254153FE00555633 /* ChatRoomViewController.swift */; };
 		3B79C51A25416EA500555633 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B79C51925416EA500555633 /* MessageModel.swift */; };
@@ -67,6 +68,7 @@
 		3B32EB1E254865EA002A688D /* NewsXmlModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsXmlModel.swift; sourceTree = "<group>"; };
 		3B32EB26254AFE71002A688D /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		3B54278425B1603000E02C01 /* DivingRecordData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivingRecordData.swift; sourceTree = "<group>"; };
+		3B54278C25B1B6BB00E02C01 /* DivingRecordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivingRecordDetailViewController.swift; sourceTree = "<group>"; };
 		3B79C5122541454800555633 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		3B79C515254153FE00555633 /* ChatRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomViewController.swift; sourceTree = "<group>"; };
 		3B79C51925416EA500555633 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 			children = (
 				3B7FF214253FE45E0097AAF7 /* DivingRecordViewController.swift */,
 				3B10529C25680A6A001E9646 /* AddDivingRecordViewController.swift */,
+				3B54278C25B1B6BB00E02C01 /* DivingRecordDetailViewController.swift */,
 			);
 			path = DivingRecordView;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				3B284207253BD608006ED973 /* AppDelegate.swift in Sources */,
 				3BA41F51257DFAE70014F28E /* TodoData.swift in Sources */,
 				3B79C51A25416EA500555633 /* MessageModel.swift in Sources */,
+				3B54278D25B1B6BB00E02C01 /* DivingRecordDetailViewController.swift in Sources */,
 				3B80D4572557BD8C0070A4C1 /* ShopModel.swift in Sources */,
 				3B7FF1E8253FD15A0097AAF7 /* HomeViewController.swift in Sources */,
 				3B7FF212253FE3F00097AAF7 /* ChatViewController.swift in Sources */,

@@ -20,6 +20,7 @@ class DivingRecordViewController: UIViewController,UITableViewDelegate,UITableVi
     var db = Firestore.firestore()
     var user = Firebase.Auth.auth().currentUser
     var uid = Auth.auth().currentUser?.uid
+    var indexNum = Int()
     
     /*
      //着手予定12/01
@@ -58,12 +59,12 @@ class DivingRecordViewController: UIViewController,UITableViewDelegate,UITableVi
         let ref = db.collection("DivingRecord")
         
         
-        let reftest = ref.whereField("user", isEqualTo: uid ?? "")
+        let reference = ref.whereField("user", isEqualTo: uid ?? "")
         recordList = []
         
         
         
-        reftest.getDocuments { [self] (snapshot, error) in
+        reference.getDocuments { [self] (snapshot, error) in
        
         
     
@@ -126,8 +127,56 @@ class DivingRecordViewController: UIViewController,UITableViewDelegate,UITableVi
  
         return cell
 }
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        <#code#>
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        indexNum = indexPath.row
+        //セルを押したら次の画面
+        performSegue(withIdentifier: "DivingRecordDetailView", sender: nil)
+        //次の画面に値を渡す
+        
+        
+        
+        
+        
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "DivingRecordDetailView"{
+            
+            
+            let drData = recordList[indexNum]
+            print()
+            
+            let RecordDetail = segue.destination as! DivingRecordDetailViewController
+            RecordDetail.inTimes = drData.inTime
+            RecordDetail.outTimes = drData.outTime
+            RecordDetail.startingPressures = drData.startingPressure
+            RecordDetail.endPressures = drData.endPressure
+            RecordDetail.airTemperatures = drData.airTemperature
+            RecordDetail.waterTemperatures = drData.waterTemperature
+            RecordDetail.weights = drData.weight// + drData.w_type
+            RecordDetail.transparencys = drData.transparency// + drData.permeability_typ
+            RecordDetail.comment = drData.comment
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        }
+        
+    }
+        
+        
+    
+    
+    
 
 }
