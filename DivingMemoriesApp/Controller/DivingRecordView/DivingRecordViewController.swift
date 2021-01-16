@@ -156,9 +156,11 @@ class DivingRecordViewController: UIViewController,UITableViewDelegate,UITableVi
             RecordDetail.endPressures = drData.endPressure
             RecordDetail.airTemperatures = drData.airTemperature
             RecordDetail.waterTemperatures = drData.waterTemperature
-            RecordDetail.weights = drData.weight// + drData.w_type
-            RecordDetail.transparencys = drData.transparency// + drData.permeability_typ
+            RecordDetail.weights = drData.weight
+            RecordDetail.transparencys = drData.transparency
             RecordDetail.comment = drData.comment
+            RecordDetail.permeability_typs = drData.permeability_typ
+            RecordDetail.w_type = drData.w_type
             
             
             

@@ -8,15 +8,20 @@
 import UIKit
 import Firebase
 import FirebaseFirestore
+import Photos
+import EMAlertController
 
 
-class DivingRecordDetailViewController: UIViewController {
+class DivingRecordDetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
     var divingData = [DivingRecordData]()
     var db = Firestore.firestore()
     var uid = FirebaseAuth.Auth.auth().currentUser?.uid
     var user = FirebaseAuth.Auth.auth().currentUser
     
+    
+    
+    @IBOutlet var backImageSet: UIImageView!
     
     @IBOutlet var inTime: UILabel!
     @IBOutlet var outTime: UILabel!
@@ -26,7 +31,12 @@ class DivingRecordDetailViewController: UIViewController {
     @IBOutlet var waterTemperature: UILabel!
     @IBOutlet var transparency: UILabel!
     @IBOutlet var weight: UILabel!
-    @IBOutlet var memo:UILabel!
+    @IBOutlet var memo: UITextView!
+    
+    
+
+    
+    var checkPermission = CheckPermission()
 
     //潜水地
     var divingGroundTitle = String()
@@ -74,66 +84,129 @@ class DivingRecordDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        inTime.text = inTimes
-        outTime.text = outTimes
-        startingPressure.text = startingPressures
-        endPressure.text = endPressures
-        airTemperature.text = airTemperatures
-        waterTemperature.text = waterTemperatures
-        transparency.text = transparencys
-        weight.text = weights
+        inTime.text = "IN TIME:\(inTimes)"
+        outTime.text = "OUT TIME:\(outTimes)"
+        startingPressure.text = "開始 圧力:\(startingPressures)"
+        endPressure.text = "終了 圧力:\(endPressures)"
+        airTemperature.text = "気温:\(airTemperatures)"
+        waterTemperature.text = "水温:\(waterTemperatures)"
+        transparency.text = "透視度:\(transparencys + " " + permeability_typs  )"
+        weight.text = "ウェイト:\(weights + " " + w_type)"
         memo.text = comment
         
-        print(inTimes)
+        //カメラ使用許可画面
+        checkPermission.showCheckPermission()
+        
     }
     
     
     
     
-    func load(){
+    //カメラ立ち上げメソッド
+    
+    func doCamera(){
         
-        let ref = db.collection("DivingRecord")
+        let sourceType:UIImagePickerController.SourceType = .camera
         
-        let reference = ref.whereField("user", isEqualTo: uid ?? "" )
-        
-        divingData = []
-        
-        
-            reference.getDocuments { (querySnapshot, error) in
+        //カメラ利用可能かチェック
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
             
-                if error != nil {
-                    print(error.debugDescription)
-                    
-                }
-                
-               
-                self.divingData = (querySnapshot?.documents.map{  document -> DivingRecordData in
-                    
-                    let data = DivingRecordData(document: document)
-                    return data
+            let cameraPicker = UIImagePickerController()
+            cameraPicker.allowsEditing = true
+            cameraPicker.sourceType = sourceType
+            cameraPicker.delegate = self
+            self.present(cameraPicker, animated: true, completion: nil)
+            
+            
+        }
+        
+    }
+    
+    //アルバム
+    func doAlbum(){
+        
+        let sourceType:UIImagePickerController.SourceType = .photoLibrary
+        
+        //カメラ利用可能かチェック
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+            
+            let cameraPicker = UIImagePickerController()
+            cameraPicker.allowsEditing = true
+            cameraPicker.sourceType = sourceType
+            cameraPicker.delegate = self
+            self.present(cameraPicker, animated: true, completion: nil)
+            
+            
+        }
+        
+    }
+    
+    
+    //画像設定時
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        
+        if info[.originalImage] as? UIImage != nil{
+            
+            let selectedImage = info[.originalImage] as! UIImage
+            backImageSet.image = selectedImage
+            
+            picker.dismiss(animated: true, completion: nil)
+            
+        }
+        
+    }
+    //キャンセルした時
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        
+        picker.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    //アラート
+    func showAlert(){
+        
+        let alertController = UIAlertController(title: "選択", message: "どちらを使用しますか?", preferredStyle: .actionSheet)
+        
+        let action1 = UIAlertAction(title: "カメラ", style: .default) { (alert) in
+            
+            self.doCamera()
+            
+        }
+        let action2 = UIAlertAction(title: "アルバム", style: .default) { (alert) in
+            
+            self.doAlbum()
+            
+        }
+        
+        let action3 = UIAlertAction(title: "キャンセル", style: .cancel)
+        
+        
+        alertController.addAction(action1)
+        alertController.addAction(action2)
+        alertController.addAction(action3)
+        self.present(alertController, animated: true, completion: nil)
+        
+    }
+    
+    
 
-                    
-                })!
-        
-        
+    
+    
+    
+    
+    @IBAction func imageset(_ sender: Any) {
+        showAlert()
         
         
     }
     
+    @IBAction func back(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
     
-
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+   
+ 
 }

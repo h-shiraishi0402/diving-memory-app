@@ -148,7 +148,7 @@ class SettingViewController:UIViewController,UITextFieldDelegate, UIPickerViewDe
         null_Judgment()
         
         
-        print("viewDidLoad_END***********************")
+
         
         
     }

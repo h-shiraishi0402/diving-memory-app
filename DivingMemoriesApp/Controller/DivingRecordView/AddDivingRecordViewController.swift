@@ -67,8 +67,8 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
     @IBOutlet var commentTextViewObj: UITextView!
     
     
-    var tspy_type = ["ft","m"]
-    var type = ["lbs","kg"]
+    var tspy_type = [" ","ft","m"]
+    var type = [" ","lbs","kg"]
     
     var recordeArray = [DivingRecordModel]()
     
