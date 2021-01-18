@@ -297,13 +297,13 @@ class SelectDayViewController: UIViewController,UITableViewDelegate,UITableViewD
         performSegue(withIdentifier: "TodoAddVc", sender: nil)
     }
     
-    
+    //各indexPathのcellが編集(削除，移動等)を行えるか指定します
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
        {
            return true
        }
 
-       //スワイプしたセルを削除　※arrayNameは変数名に変更してください
+       //スワイプしたセルを削除
        func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         let todo = testTodo[indexPath.row]
         
@@ -312,7 +312,7 @@ class SelectDayViewController: UIViewController,UITableViewDelegate,UITableViewD
         
            if editingStyle == UITableViewCell.EditingStyle.delete {
             
-            
+            //公式参照(削除)
             db.collection("Todo").document("\(docId)").delete() { err in
                 if let err = err {
                     print("Error removing document: \(err)")
