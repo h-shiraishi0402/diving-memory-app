@@ -20,6 +20,8 @@ class TodoData {
     var memo:String?
     var date2:String?
     var user:String?
+    var docId:String?
+   
     
     init(document: QueryDocumentSnapshot){
         
@@ -35,6 +37,8 @@ class TodoData {
         memo = docData["memo"] as? String
         date2 = docData["date3"] as? String
         user = docData["user"] as? String
+        docId = docData["docId"] as? String
+        
         
     }
 }

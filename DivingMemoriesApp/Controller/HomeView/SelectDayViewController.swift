@@ -35,12 +35,15 @@ class SelectDayViewController: UIViewController,UITableViewDelegate,UITableViewD
     var roomName = String()
     
     var uid = Auth.auth().currentUser?.uid
+    var docId = String()
     
     
     
     var db = Firestore.firestore()
     var user = Firebase.Auth.auth().currentUser
 
+    
+    var indexnum = Int()
 
     
     @IBOutlet var addObj: UIButton!
@@ -50,12 +53,19 @@ class SelectDayViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     @IBOutlet var addTodoTablView: UITableView!
     
+    var id_count = 0
+    var udf_count = "id_count"
     
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        let newId = UserDefaults.standard.integer(forKey: udf_count)
+        id_count = newId
+        print("newID*\(id_count)")
         
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3 ) { [self] in
@@ -78,7 +88,7 @@ class SelectDayViewController: UIViewController,UITableViewDelegate,UITableViewD
         
         addObj.layer.cornerRadius = 25
         addObj.clipsToBounds = true
-        self.addTodoTablView.allowsSelection = false
+        self.addTodoTablView.allowsSelection = true
        
         
        
@@ -124,7 +134,7 @@ class SelectDayViewController: UIViewController,UITableViewDelegate,UITableViewD
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-      
+        
       
         loadTodo()
       
@@ -154,12 +164,15 @@ class SelectDayViewController: UIViewController,UITableViewDelegate,UITableViewD
                 
                 return
             }
+            
+            
           
             
             
             
             
             self.testTodo = (querySnapshot?.documents.map { document -> TodoData in
+                
                 
                 let data = TodoData(document: document)
                 
@@ -174,7 +187,9 @@ class SelectDayViewController: UIViewController,UITableViewDelegate,UITableViewD
                 
             })!
             
-        
+           
+            
+  
            
                 addTodoTablView.reloadData()
                
@@ -207,6 +222,7 @@ class SelectDayViewController: UIViewController,UITableViewDelegate,UITableViewD
         let section02_Cell = tableView.dequeueReusableCell(withIdentifier: "Cell2", for: indexPath) as! TodoCell
         let todo = testTodo[indexPath.row]
         section02_Cell.selectionStyle = .none
+      
         
         
         if todo.user == Auth.auth().currentUser?.uid{
@@ -222,6 +238,7 @@ class SelectDayViewController: UIViewController,UITableViewDelegate,UITableViewD
         section02_Cell.memoLabel.isEditable = false
         section02_Cell.memoLabel.isSelectable = false
         section02_Cell.memoLabel.text = todo.memo
+        
         
         
         }else{
@@ -246,6 +263,8 @@ class SelectDayViewController: UIViewController,UITableViewDelegate,UITableViewD
         return 250
         
     }
+    
+
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -278,16 +297,52 @@ class SelectDayViewController: UIViewController,UITableViewDelegate,UITableViewD
         performSegue(withIdentifier: "TodoAddVc", sender: nil)
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
+       {
+           return true
+       }
+
+       //スワイプしたセルを削除　※arrayNameは変数名に変更してください
+       func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let todo = testTodo[indexPath.row]
+        
+        docId = db.collection("Todo").document("\(todo.docId ?? "")").documentID
+        print(docId)
+        
+           if editingStyle == UITableViewCell.EditingStyle.delete {
+            
+            
+            db.collection("Todo").document("\(docId)").delete() { err in
+                if let err = err {
+                    print("Error removing document: \(err)")
+                } else {
+                    print("Document successfully removed!")
+                }
+            }
+   
+            
+               testTodo.remove(at: indexPath.row)
+               tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+           }
+        
+       }
+    
+
+
+
+    
+    
+
+
+
+
+
+////
+//ALL
+//DivingRecord
+//
+//Profile
+//
+//Todo
 }
-
-

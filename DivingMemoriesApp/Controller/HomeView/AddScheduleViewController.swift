@@ -39,10 +39,15 @@ class AddScheduleViewController: UIViewController,UITextViewDelegate,UIPickerVie
     var todoModel = TodoModel()
     var todosetValue:TodosetValue?
     var selectedDay = SelectDayViewController()
+    var testTodoData = [TodoData]()
     var date = Int()
     var db = Firestore.firestore()
     var testTodo:TodoData?
     var numberFormart = NumberFormatter()
+    //応急処置
+    var id_count = 0
+    var udf_count = "id_count"
+
     
     
     //参加人数
@@ -57,6 +62,11 @@ class AddScheduleViewController: UIViewController,UITextViewDelegate,UIPickerVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        let newId = UserDefaults.standard.integer(forKey: udf_count)
+        id_count = newId
+        print("newID*\(id_count)")
+        
         
         numberFormart.numberStyle = .decimal
         numberFormart.locale = Locale(identifier: "ja_JP")
@@ -76,15 +86,26 @@ class AddScheduleViewController: UIViewController,UITextViewDelegate,UIPickerVie
         
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+    }
+    
 
     @IBAction func done(_ sender: Any) {
         
+       
+        id_count = id_count + 1
+        UserDefaults.standard.setValue(id_count, forKey: udf_count)
+        print(id_count)
         
-        db.collection("Todo").document().setData(["date2":dateLabel.text!,"title":titleTextField.text!,"date":"\(selectYear)年\(selectMounth)月\(selectDay)日","numberOfPeople":numberOfPeopleTextField.text!,"budget":budgetTextField.text!,"dutchTreat":dutchTreatTextField.text!,"memo":memoTextView.text!,"date3":Date().timeIntervalSince1970,"user":Auth.auth().currentUser?.uid as Any,"CreateDate":Data()])
+        db.collection("Todo").document("ADD_TODO\(id_count)").setData(["date2":dateLabel.text!,"title":titleTextField.text!,"date":"\(selectYear)年\(selectMounth)月\(selectDay)日","numberOfPeople":numberOfPeopleTextField.text!,"budget":budgetTextField.text!,"dutchTreat":dutchTreatTextField.text!,"memo":memoTextView.text!,"date3":Date().timeIntervalSince1970,"user":Auth.auth().currentUser?.uid as Any,"CreateDate":Data(),"docId":"ADD_TODO\(id_count)"])
+      
         
         
         todosetValue?.todosetValue(set: todoModel)
-        
        
         dismiss(animated: true, completion: nil)
         

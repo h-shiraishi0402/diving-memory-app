@@ -22,6 +22,7 @@ class DivingRecordDetailViewController: UIViewController, UIImagePickerControlle
     
     
     @IBOutlet var backImageSet: UIImageView!
+    var backimage = Data()
     
     @IBOutlet var inTime: UILabel!
     @IBOutlet var outTime: UILabel!
@@ -77,6 +78,10 @@ class DivingRecordDetailViewController: UIViewController, UIImagePickerControlle
     var comment = String()
     
     
+    var tag = Int()
+    
+    var imageNum = Int()
+    
     
 
     
@@ -84,6 +89,17 @@ class DivingRecordDetailViewController: UIViewController, UIImagePickerControlle
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        let useImagedata =  UserDefaults.standard.object(forKey: "imageset\(imageNum)")
+        
+        print("reVcaaaaaaaa:\(imageNum)")
+        if useImagedata != nil{
+            
+            self.backImageSet.image = UIImage(data: useImagedata as! Data)
+        }
+
+        
+        
         inTime.text = "IN TIME:\(inTimes)"
         outTime.text = "OUT TIME:\(outTimes)"
         startingPressure.text = "開始 圧力:\(startingPressures)"
@@ -150,7 +166,7 @@ class DivingRecordDetailViewController: UIViewController, UIImagePickerControlle
             
             let selectedImage = info[.originalImage] as! UIImage
             backImageSet.image = selectedImage
-            
+            backimage = selectedImage.jpegData(compressionQuality: 1.0)!
             picker.dismiss(animated: true, completion: nil)
             
         }
@@ -207,6 +223,13 @@ class DivingRecordDetailViewController: UIViewController, UIImagePickerControlle
     
     
     
-   
+    @IBAction func done(_ sender: Any) {
+        
+        UserDefaults.standard.set(backimage, forKey: "imageset\(imageNum)")
+        dismiss(animated: true, completion: nil)
+        
+        
+    }
+    
  
 }

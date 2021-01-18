@@ -31,10 +31,10 @@ class TodoCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        memoLabel.layer.cornerRadius = 20
+        memoLabel.layer.cornerRadius = 5
         memoLabel.clipsToBounds = true
         
-        memoLabeObj.layer.cornerRadius = 10
+        memoLabeObj.layer.cornerRadius = 5
         memoLabeObj.clipsToBounds = true
         
     }

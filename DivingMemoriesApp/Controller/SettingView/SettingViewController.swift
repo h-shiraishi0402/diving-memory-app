@@ -620,4 +620,10 @@ class SettingViewController:UIViewController,UITextFieldDelegate, UIPickerViewDe
     
     
     
+    
+    
+    
+
+    
+    
 }

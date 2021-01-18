@@ -49,6 +49,8 @@ struct DivingRecordModel {
     //ウェイトタイプ
     var w_type = String()
     
+   
+    
 
     
 }

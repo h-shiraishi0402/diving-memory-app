@@ -21,7 +21,8 @@ struct TodoModel {
     var budget = String()
     var dutchTreat = String()
     var memo = String()
-
+    var user = String()
+    var docId = String()
     
    
 }

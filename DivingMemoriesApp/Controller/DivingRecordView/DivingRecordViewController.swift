@@ -46,6 +46,7 @@ class DivingRecordViewController: UIViewController,UITableViewDelegate,UITableVi
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         listLoad()
+        
         RecorListTableView.reloadData()
 
         
@@ -56,10 +57,11 @@ class DivingRecordViewController: UIViewController,UITableViewDelegate,UITableVi
     
     func listLoad(){
         
+        
         let ref = db.collection("DivingRecord")
         
         
-        let reference = ref.whereField("user", isEqualTo: uid ?? "")
+        let reference = ref.whereField("user", isEqualTo: uid! )//uid ?? ""
         recordList = []
         
         
@@ -69,7 +71,6 @@ class DivingRecordViewController: UIViewController,UITableViewDelegate,UITableVi
         
     
             if error != nil {
-             
                 print(error.debugDescription)
                 return
             }
@@ -84,11 +85,19 @@ class DivingRecordViewController: UIViewController,UITableViewDelegate,UITableVi
                     
                 }
                 
-               let data = DivingRecordData(document: docment)
+                let data = DivingRecordData(document: docment)
                 
                 return data
                 
             })!
+            
+            recordList.sort { (lcreateTime, rcreateTime) -> Bool in
+                
+             return lcreateTime.createTime < rcreateTime.createTime
+                
+                
+            }
+            print(recordList)
 
             RecorListTableView.reloadData()
             
@@ -124,12 +133,14 @@ class DivingRecordViewController: UIViewController,UITableViewDelegate,UITableVi
 
 
         }
+        
+        
  
         return cell
 }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         indexNum = indexPath.row
+        
         //セルを押したら次の画面
         performSegue(withIdentifier: "DivingRecordDetailView", sender: nil)
         //次の画面に値を渡す
@@ -148,8 +159,7 @@ class DivingRecordViewController: UIViewController,UITableViewDelegate,UITableVi
             
             let drData = recordList[indexNum]
             print()
-            
-            let RecordDetail = segue.destination as! DivingRecordDetailViewController
+            let RecordDetail: DivingRecordDetailViewController = (segue.destination as? DivingRecordDetailViewController)!
             RecordDetail.inTimes = drData.inTime
             RecordDetail.outTimes = drData.outTime
             RecordDetail.startingPressures = drData.startingPressure
@@ -161,16 +171,8 @@ class DivingRecordViewController: UIViewController,UITableViewDelegate,UITableVi
             RecordDetail.comment = drData.comment
             RecordDetail.permeability_typs = drData.permeability_typ
             RecordDetail.w_type = drData.w_type
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+            RecordDetail.imageNum = indexNum
+            print("\(indexNum):aaaaaaaaaa")
             
         }
         

@@ -57,6 +57,10 @@ class DivingRecordData {
     var user:String?
     
     
+    var createTime:Double
+    
+    
+    
     
     
     
@@ -79,7 +83,7 @@ class DivingRecordData {
         weight = document["weight"] as! String
         w_type = document["weight_type"] as! String
         comment = document["comment"] as! String
-        
+        createTime = document["createTime"] as! Double
         user = docData["user"] as? String
         
       
