@@ -133,7 +133,7 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
         
     }
     
-    
+    //willappear必要？
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -193,28 +193,19 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
         inTimePicker.minuteInterval = 10
         outTimePicker.minuteInterval = 10
         
-        
         inTime.inputView = inTimePicker
         outTime.inputView = outTimePicker
-        
         
         toolbar.setItems([doneButton], animated: true)
         inTime.inputAccessoryView = toolbar
         outTime.inputAccessoryView = toolbar
         
         
-        
-        
-        
-        
-        
-        
-        //
+        //ウェイトのタイプのプルダウン作成
         w_type.inputView = weightPicker
         
         let weighttoolbar = UIToolbar()
         weighttoolbar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
-        
         let weightdone = UIBarButtonItem(title: "完了", style: .done, target: self, action: #selector(AddDivingRecordViewController.doneClicked))
         weighttoolbar.setItems([weightdone], animated: true)
         w_type.inputAccessoryView = weighttoolbar
@@ -341,16 +332,10 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
             
         }else if picker == weightPicker{
             w_type.text = type[row]
-            
+
         }
         
-        
     }
-    
-    
-    
-    
-    
     
     @IBAction func finish(_ sender: Any) {
         
@@ -376,43 +361,34 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
             "comment":commentTextViewObj.text! as String,
             "user":Auth.auth().currentUser?.uid as Any,
             "title":divingGroundTitle.text! as String
-            
-            
         ])
-        
         diviingSetValue?.diviingValue(set: divingRecordModel )
-        
-        
-        
+        //戻る
         dismiss(animated: true, completion: nil)
-        
-        
     }
     
+    //return押されたら呼ばれる
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        let dateFormatter = DateFormatter()
-        let date2 = dateFormatter.date(from: inTime.text!)
-        
-        
         return true
     }
     
-    //テキストビューの編集が開始されたら
+    //テキストビューの編集が開始されたら呼ばれる(placeHolderとして・・・)
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == UIColor.lightGray {
             textView.text = nil
             textView.textColor = UIColor.black
         }
     }
-    //テキストビューの編集が終了したら
+    //テキストビューの編集が終了したら呼ばれる
     func textViewDidEndEditing(_ textView: UITextView) {
+        //textviewがからだったら
         if textView.text.isEmpty {
             textView.text = "コメント"
             textView.textColor = UIColor.lightGray
         }
     }
     
+    //戻る
     @IBAction func back(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }

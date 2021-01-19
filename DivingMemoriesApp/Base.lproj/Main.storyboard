@@ -74,7 +74,7 @@
                                 </constraints>
                                 <state key="normal" image="setting-App-29x29"/>
                                 <connections>
-                                    <action selector="sendImageData:" destination="Uc7-Yi-Ick" eventType="touchUpInside" id="ZnM-Wd-bTP"/>
+                                    <action selector="transition_to_settingView:" destination="Uc7-Yi-Ick" eventType="touchUpInside" id="ZnM-Wd-bTP"/>
                                     <segue destination="abA-OF-jRg" kind="presentation" identifier="Stetting" id="sgK-cx-1OD"/>
                                 </connections>
                             </button>
@@ -870,7 +870,7 @@
                                 <color key="textColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2dh-Te-PuU">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2dh-Te-PuU">
                                 <rect key="frame" x="155" y="371" width="239" height="34"/>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -890,7 +890,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4C7-ey-bY9">
+                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4C7-ey-bY9">
                                 <rect key="frame" x="155" y="427" width="239" height="34"/>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -910,7 +910,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QkU-f6-0Vf">
+                            <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QkU-f6-0Vf">
                                 <rect key="frame" x="155" y="484" width="239" height="34"/>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -930,7 +930,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0D5-qK-JXa">
+                            <textField opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0D5-qK-JXa">
                                 <rect key="frame" x="155" y="541" width="239" height="34"/>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -950,7 +950,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O3y-fn-Dyz">
+                            <textField opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O3y-fn-Dyz">
                                 <rect key="frame" x="155" y="598" width="239" height="34"/>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -1055,20 +1055,20 @@
                     </view>
                     <navigationItem key="navigationItem" id="rTS-QM-bLZ"/>
                     <connections>
-                        <outlet property="AgeCreat" destination="QkU-f6-0Vf" id="RLe-9m-gNw"/>
-                        <outlet property="DivinghistoryCreat" destination="O3y-fn-Dyz" id="v7s-Mv-lnI"/>
-                        <outlet property="DivinghistoryLabel" destination="8Qv-yD-KX0" id="PDj-q6-btI"/>
-                        <outlet property="FinishButtonObject" destination="uVS-3E-rIA" id="hcX-y7-Yxb"/>
-                        <outlet property="NicknameCreat" destination="2dh-Te-PuU" id="Cln-j6-RXn"/>
-                        <outlet property="NicknameLabel" destination="ZXc-8o-HkH" id="FrM-xQ-Z3c"/>
-                        <outlet property="OwnedLicenseCreat" destination="0D5-qK-JXa" id="SZd-C9-bSj"/>
-                        <outlet property="OwnedLicenseLabel" destination="UVL-rg-wl2" id="PM2-Bl-8a4"/>
-                        <outlet property="SexCreat" destination="4C7-ey-bY9" id="CwQ-ah-TIh"/>
-                        <outlet property="SexLabel" destination="GT9-1l-4GN" id="WQD-Ij-q3S"/>
                         <outlet property="addNewLabel" destination="dnp-ED-wGu" id="ziI-Nr-yw4"/>
+                        <outlet property="ageCreatTextField" destination="QkU-f6-0Vf" id="reM-dk-EQ6"/>
                         <outlet property="ageLabel" destination="jCO-FW-Wc3" id="rAL-vc-lLR"/>
-                        <outlet property="logOutObj" destination="Iuy-Rb-dJ3" id="qtF-Nr-6bB"/>
+                        <outlet property="divingHistoryCreatTextField" destination="O3y-fn-Dyz" id="wV8-Ia-Hn8"/>
+                        <outlet property="divingHistoryLabel" destination="8Qv-yD-KX0" id="bVH-vS-Ghy"/>
+                        <outlet property="finishButtonObject" destination="uVS-3E-rIA" id="XD8-fL-3BL"/>
+                        <outlet property="logOutButtonObj" destination="Iuy-Rb-dJ3" id="gfx-tw-rz0"/>
+                        <outlet property="nickNameCreatTextField" destination="2dh-Te-PuU" id="qUh-kK-SDd"/>
+                        <outlet property="nickNameLabel" destination="ZXc-8o-HkH" id="ULn-5F-f2N"/>
+                        <outlet property="ownedLicenseCreatTextField" destination="0D5-qK-JXa" id="PiR-vh-XzC"/>
+                        <outlet property="ownedLicenseLabel" destination="UVL-rg-wl2" id="0Ab-1f-3I4"/>
                         <outlet property="profileImage" destination="MNe-vw-ei8" id="agh-8f-rt9"/>
+                        <outlet property="sexCreatTextField" destination="4C7-ey-bY9" id="CpT-uN-qDS"/>
+                        <outlet property="sexLabel" destination="GT9-1l-4GN" id="FrC-bT-Ejl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ws6-AA-LH5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1078,7 +1078,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-3088" y="-765"/>
+            <point key="canvasLocation" x="-3374" y="-876"/>
         </scene>
         <!--チャット-->
         <scene sceneID="KW6-cw-vb7">

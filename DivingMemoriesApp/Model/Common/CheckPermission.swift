@@ -7,7 +7,7 @@
 
 import Foundation
 import Photos
-
+//写真使用時
 class CheckPermission {
     
     func showCheckPermission(){

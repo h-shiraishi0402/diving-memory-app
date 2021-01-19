@@ -11,20 +11,9 @@ import Firebase
 import FirebaseAuth
 import PKHUD
 
-
-protocol TodosetValue {
-    func todosetValue(set:TodoModel)
-}
-
-
+protocol TodosetValue {func todosetValue(set:TodoModel)}
 
 class AddScheduleViewController: UIViewController,UITextViewDelegate,UIPickerViewDelegate, UITextFieldDelegate {
-    
-    
-    var selectDay = Int()
-    var selectYear = Int()
-    var selectMounth = Int()
-    
     
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var titleTextField: UITextField!
@@ -34,31 +23,25 @@ class AddScheduleViewController: UIViewController,UITextViewDelegate,UIPickerVie
     @IBOutlet var memoTextView: UITextView!
     @IBOutlet var finishObj: UIButton!
     
-    
-    var numberOfPeoplePickerView = UIPickerView()
+    var selectDay = Int()
+    var selectYear = Int()
+    var selectMounth = Int()
     var todoModel = TodoModel()
     var todosetValue:TodosetValue?
-    var selectedDay = SelectDayViewController()
-    var testTodoData = [TodoData]()
     var date = Int()
     var db = Firestore.firestore()
-    var testTodo:TodoData?
     var numberFormart = NumberFormatter()
-    //応急処置
+    //応急処置(firebaseのdocumentの設定 udf_count + id_count )
     var id_count = 0
     var udf_count = "id_count"
-
-    
-    
     //参加人数
-    //var numberOfPeopleArray = ["1","2","3","4","5","6","7","8","9","10"]
     var numberOfPeople = Int()
     //予算
     var budget = Int()
-    
     //割り勘金額
     var dutchTreat = Int()
     
+    //------------↑↑↑↑↑Global variables↑↑↑↑------------------------------------------------
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,54 +68,42 @@ class AddScheduleViewController: UIViewController,UITextViewDelegate,UIPickerVie
         dutchTreatTextField.isSelected = false
         
     }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        
-    }
-    
-
+    //完了
     @IBAction func done(_ sender: Any) {
-        
-       
+        //カウントのインクリメント
         id_count = id_count + 1
+        //保存
         UserDefaults.standard.setValue(id_count, forKey: udf_count)
         print(id_count)
-        
-        db.collection("Todo").document("ADD_TODO\(id_count)").setData(["date2":dateLabel.text!,"title":titleTextField.text!,"date":"\(selectYear)年\(selectMounth)月\(selectDay)日","numberOfPeople":numberOfPeopleTextField.text!,"budget":budgetTextField.text!,"dutchTreat":dutchTreatTextField.text!,"memo":memoTextView.text!,"date3":Date().timeIntervalSince1970,"user":Auth.auth().currentUser?.uid as Any,"CreateDate":Data(),"docId":"ADD_TODO\(id_count)"])
-      
-        
-        
+        //firebaseに値の作成
+        db.collection("Todo").document("ADD_TODO\(id_count)").setData(
+            ["date2":dateLabel.text!,
+             "title":titleTextField.text!,
+             "date":"\(selectYear)年\(selectMounth)月\(selectDay)日",
+             "numberOfPeople":numberOfPeopleTextField.text!,
+             "budget":budgetTextField.text!,
+             "dutchTreat":dutchTreatTextField.text!,
+             "memo":memoTextView.text!,
+             "date3":Date().timeIntervalSince1970,
+             "user":Auth.auth().currentUser?.uid as Any,
+             "CreateDate":Data(),
+             "docId":"ADD_TODO\(id_count)"
+            ])
+        //
         todosetValue?.todosetValue(set: todoModel)
-       
-        dismiss(animated: true, completion: nil)
-        
-       
-        
-        
-    }
-    
-    @IBAction func back(_ sender: Any) {
-        
+        //戻る
         dismiss(animated: true, completion: nil)
     }
-    
-    
+    //戻る
+    @IBAction func back(_ sender: Any) {dismiss(animated: true, completion: nil)}
+    //キーボード以外をタップしたら呼ばれる
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        
-        
-        
         if budgetTextField.text != "" && numberOfPeopleTextField.text  != "" {
-            
-            
-            
             if numberOfPeople <= 1 {
+                
                 numberOfPeople = Int(numberOfPeopleTextField.text!)!
                 budget = Int(budgetTextField.text!)!
-                
                 let calculation = budget / numberOfPeople
                 let calculationNum = NSNumber(value: calculation)
                 let calculationString  = numberFormart.string(from: calculationNum)
@@ -141,16 +112,12 @@ class AddScheduleViewController: UIViewController,UITextViewDelegate,UIPickerVie
                 let budgetValue = NSNumber(value: budget)
                 let budgetString  = numberFormart.string(from: budgetValue)
                 dutchTreatTextField.text = String(budgetString!)
-                
             }
-            
         }else{
             dutchTreatTextField.text = "0"
         }
     }
-    
-    
-    
+    //Returnをしたらキーボードが閉じる
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         if budgetTextField.text != "" && budgetTextField.text  != "" {
@@ -161,12 +128,9 @@ class AddScheduleViewController: UIViewController,UITextViewDelegate,UIPickerVie
             let calculationNum = NSNumber(value: calculation)
             let calculationString  = numberFormart.string(from: calculationNum)
             dutchTreatTextField.text = String(calculationString! )
-            
         }else{
             dutchTreatTextField.text = "0"
         }
-        
-        
         return true
     }
     

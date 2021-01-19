@@ -5,24 +5,17 @@
 //  Created by 白石裕幸 on 2020/11/15.
 //
 
+//ストレージに保存
+
 import Foundation
 import FirebaseStorage
 
 protocol SendProfileOKDelegate {
-    
-    
     func sendProfileOKDelegate(url:String)
-    
 }
 
-
 class SendToModel{
-    
-    
     var sendProfileOKDelegate:SendProfileOKDelegate?
-
-    
-    
     init() {
         
     }

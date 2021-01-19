@@ -12,7 +12,7 @@ import FirebaseAuth
 
 
 class DivingRecordViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
- 
+    
     @IBOutlet var RecorListTableView: UITableView!
     
     
@@ -21,137 +21,83 @@ class DivingRecordViewController: UIViewController,UITableViewDelegate,UITableVi
     var user = Firebase.Auth.auth().currentUser
     var uid = Auth.auth().currentUser?.uid
     var indexNum = Int()
-    
-    /*
-     //着手予定12/01
-     */
-    
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         RecorListTableView.dataSource = self
         RecorListTableView.delegate = self
         
-        
-        
-        // NavigationBarを非表示
-              
-
-        // Do any additional setup after loading the view.
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        //ナビゲーションバー非表示
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        //ロード実行
         listLoad()
-        
+        //tableView更新
         RecorListTableView.reloadData()
-
-        
     }
-    
-    
-    
-    
+
+    //対象のものをfirebaseから取得(ロード)
     func listLoad(){
-        
-        
         let ref = db.collection("DivingRecord")
-        
-        
+        //ユーザのもだけ取得する為
         let reference = ref.whereField("user", isEqualTo: uid! )//uid ?? ""
+        
+        //初期化
         recordList = []
-        
-        
-        
+
         reference.getDocuments { [self] (snapshot, error) in
-       
-        
-    
+ 
             if error != nil {
                 print(error.debugDescription)
                 return
             }
             
-            
- 
             recordList = (snapshot?.documents.map{ docment -> DivingRecordData  in
                 
-                if error != nil {
-               
-                    print("")
-                    
-                }
-                
                 let data = DivingRecordData(document: docment)
-                
                 return data
-                
             })!
-            
+            //ソート
             recordList.sort { (lcreateTime, rcreateTime) -> Bool in
-                
-             return lcreateTime.createTime < rcreateTime.createTime
-                
-                
+                return lcreateTime.createTime < rcreateTime.createTime
             }
-            print(recordList)
-
+            //リロード
             RecorListTableView.reloadData()
-            
         }
-        
-        
-        
     }
-    
-    
-    
+    //セクションの数
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+    //セルの数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-
         return recordList.count
-        
     }
-
+    //セルの構築
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let drData = recordList[indexPath.row]
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "drCell")
-        
-        
+        //ユーザのものかどうかの判別
         if drData.user == Auth.auth().currentUser?.uid{
-            
             cell.textLabel?.text = drData.divingGroundTitle
             cell.detailTextLabel?.text = drData.dateTextField
-
-
         }
-        
-        
- 
         return cell
-}
+    }
+    //セルを選択したら
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         indexNum = indexPath.row
-        
         //セルを押したら次の画面
-        performSegue(withIdentifier: "DivingRecordDetailView", sender: nil)
         //次の画面に値を渡す
-        
-        
-        
-        
-        
+        performSegue(withIdentifier: "DivingRecordDetailView", sender: nil)
     }
-    
-    
+    //値を渡す
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "DivingRecordDetailView"{
@@ -177,10 +123,5 @@ class DivingRecordViewController: UIViewController,UITableViewDelegate,UITableVi
         }
         
     }
-        
-        
     
-    
-    
-
 }

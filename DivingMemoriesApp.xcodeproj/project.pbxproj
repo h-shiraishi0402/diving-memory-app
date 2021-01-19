@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B07996925B6534B0086C8BA /* ProfileValueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B07996825B6534B0086C8BA /* ProfileValueModel.swift */; };
 		3B10529D25680A6B001E9646 /* AddDivingRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B10529C25680A6A001E9646 /* AddDivingRecordViewController.swift */; };
 		3B284207253BD608006ED973 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B284206253BD608006ED973 /* AppDelegate.swift */; };
 		3B284209253BD608006ED973 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B284208253BD608006ED973 /* SceneDelegate.swift */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		068761A2570CCA507AA6E2DA /* Pods-DivingMemoriesApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DivingMemoriesApp.release.xcconfig"; path = "Target Support Files/Pods-DivingMemoriesApp/Pods-DivingMemoriesApp.release.xcconfig"; sourceTree = "<group>"; };
+		3B07996825B6534B0086C8BA /* ProfileValueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileValueModel.swift; sourceTree = "<group>"; };
 		3B10529C25680A6A001E9646 /* AddDivingRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDivingRecordViewController.swift; sourceTree = "<group>"; };
 		3B284203253BD608006ED973 /* DivingMemoriesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DivingMemoriesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B284206253BD608006ED973 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,58 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3B07996225B651270086C8BA /* ChatView */ = {
+			isa = PBXGroup;
+			children = (
+				3B79C51925416EA500555633 /* MessageModel.swift */,
+			);
+			path = ChatView;
+			sourceTree = "<group>";
+		};
+		3B07996325B651520086C8BA /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				3B80D4562557BD8C0070A4C1 /* ShopModel.swift */,
+				3B80D4592557BDDC0070A4C1 /* AnalysisModel.swift */,
+			);
+			path = SearchView;
+			sourceTree = "<group>";
+		};
+		3B07996425B6520E0086C8BA /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3B813AA72561395400E54AE6 /* SendToModel.swift */,
+				3B813AA32561297200E54AE6 /* CheckPermission.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		3B07996525B652420086C8BA /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				3BF55A822573D0D2002D951F /* TodoModel.swift */,
+				3BA41F50257DFAE70014F28E /* TodoData.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		3B07996625B6525C0086C8BA /* DivingRecord */ = {
+			isa = PBXGroup;
+			children = (
+				3B87F77625A708C2008CB2F5 /* DivingRecordModel.swift */,
+				3B54278425B1603000E02C01 /* DivingRecordData.swift */,
+			);
+			path = DivingRecord;
+			sourceTree = "<group>";
+		};
+		3B07996725B6531D0086C8BA /* SetingView */ = {
+			isa = PBXGroup;
+			children = (
+				3B07996825B6534B0086C8BA /* ProfileValueModel.swift */,
+			);
+			path = SetingView;
+			sourceTree = "<group>";
+		};
 		3B2841FA253BD607006ED973 = {
 			isa = PBXGroup;
 			children = (
@@ -180,16 +234,13 @@
 		3B284238253C08F5006ED973 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3B79C51925416EA500555633 /* MessageModel.swift */,
+				3B07996725B6531D0086C8BA /* SetingView */,
+				3B07996625B6525C0086C8BA /* DivingRecord */,
+				3B07996525B652420086C8BA /* Home */,
+				3B07996425B6520E0086C8BA /* Common */,
+				3B07996325B651520086C8BA /* SearchView */,
+				3B07996225B651270086C8BA /* ChatView */,
 				3B32EB1E254865EA002A688D /* NewsXmlModel.swift */,
-				3B80D4562557BD8C0070A4C1 /* ShopModel.swift */,
-				3B80D4592557BDDC0070A4C1 /* AnalysisModel.swift */,
-				3B813AA32561297200E54AE6 /* CheckPermission.swift */,
-				3B813AA72561395400E54AE6 /* SendToModel.swift */,
-				3BF55A822573D0D2002D951F /* TodoModel.swift */,
-				3BA41F50257DFAE70014F28E /* TodoData.swift */,
-				3B87F77625A708C2008CB2F5 /* DivingRecordModel.swift */,
-				3B54278425B1603000E02C01 /* DivingRecordData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -415,6 +466,7 @@
 				3B28420B253BD608006ED973 /* ViewController.swift in Sources */,
 				3B284207253BD608006ED973 /* AppDelegate.swift in Sources */,
 				3BA41F51257DFAE70014F28E /* TodoData.swift in Sources */,
+				3B07996925B6534B0086C8BA /* ProfileValueModel.swift in Sources */,
 				3B79C51A25416EA500555633 /* MessageModel.swift in Sources */,
 				3B54278D25B1B6BB00E02C01 /* DivingRecordDetailViewController.swift in Sources */,
 				3B80D4572557BD8C0070A4C1 /* ShopModel.swift in Sources */,

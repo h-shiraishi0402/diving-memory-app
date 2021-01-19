@@ -8,8 +8,6 @@
 import Foundation
 
 struct ShopModel {
-    
-    
     var name:String?
     var name_kana:String?
     var latitude:String?
@@ -18,6 +16,4 @@ struct ShopModel {
     var tel:String?
     var shop_image1:String?
     var url:String?
-    
-    
 }
