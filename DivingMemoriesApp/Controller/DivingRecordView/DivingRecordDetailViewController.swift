@@ -78,9 +78,11 @@ class DivingRecordDetailViewController: UIViewController, UIImagePickerControlle
     var comment = String()
     
     
-    var tag = Int()
-    
+    var imagTag = 0
     var imageNum = Int()
+    
+    
+    
     
     
 
@@ -89,23 +91,27 @@ class DivingRecordDetailViewController: UIViewController, UIImagePickerControlle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+
         let useImagedata =  UserDefaults.standard.object(forKey: "imageset\(imageNum)")
         
         print("reVcaaaaaaaa:\(imageNum)")
         if useImagedata != nil{
             
             self.backImageSet.image = UIImage(data: useImagedata as! Data)
+        }else{
+            backImageSet.image = UIImage(named: "no_image")
         }
 
+        memo.isEditable = false
+        
         
         
         inTime.text = "IN TIME:\(inTimes)"
         outTime.text = "OUT TIME:\(outTimes)"
         startingPressure.text = "開始 圧力:\(startingPressures)"
         endPressure.text = "終了 圧力:\(endPressures)"
-        airTemperature.text = "気温:\(airTemperatures)"
-        waterTemperature.text = "水温:\(waterTemperatures)"
+        airTemperature.text = "気温:\(airTemperatures)℃"
+        waterTemperature.text = "水温:\(waterTemperatures)℃"
         transparency.text = "透視度:\(transparencys + " " + permeability_typs  )"
         weight.text = "ウェイト:\(weights + " " + w_type)"
         memo.text = comment
@@ -115,7 +121,10 @@ class DivingRecordDetailViewController: UIViewController, UIImagePickerControlle
         
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
     
     
     //カメラ立ち上げメソッド
@@ -163,12 +172,13 @@ class DivingRecordDetailViewController: UIViewController, UIImagePickerControlle
         
         
         if info[.originalImage] as? UIImage != nil{
-            
             let selectedImage = info[.originalImage] as! UIImage
             backImageSet.image = selectedImage
             backimage = selectedImage.jpegData(compressionQuality: 1.0)!
+            UserDefaults.standard.set(backimage, forKey: "imageset\(imageNum)")
             picker.dismiss(animated: true, completion: nil)
-            
+            print("aaaaaaaaaa\(selectedImage)")
+        
         }
         
     }
@@ -206,14 +216,8 @@ class DivingRecordDetailViewController: UIViewController, UIImagePickerControlle
     }
     
     
-
-    
-    
-    
-    
     @IBAction func imageset(_ sender: Any) {
         showAlert()
-        
         
     }
     
@@ -222,14 +226,6 @@ class DivingRecordDetailViewController: UIViewController, UIImagePickerControlle
     }
     
     
-    
-    @IBAction func done(_ sender: Any) {
-        
-        UserDefaults.standard.set(backimage, forKey: "imageset\(imageNum)")
-        dismiss(animated: true, completion: nil)
-        
-        
-    }
     
  
 }

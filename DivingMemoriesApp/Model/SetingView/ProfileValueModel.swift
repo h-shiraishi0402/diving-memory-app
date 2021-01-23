@@ -38,12 +38,8 @@ struct profileValueModel {
         "コースディレクター"],
     
     
-      "DivinghistoryArray" :[" ","1年未満","1年〜3年","4年〜5年","5年〜10年","10年以上"]
-    
-    
-    
-    
-    
+      "divingHistoryArray" :[" ","1年未満","1年〜3年","4年〜5年","5年〜10年","10年以上"]
+
     
 ]
     

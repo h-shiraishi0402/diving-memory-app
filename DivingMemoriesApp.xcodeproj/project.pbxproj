@@ -19,7 +19,6 @@
 		3B28423B253C17EC006ED973 /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B28423A253C17EC006ED973 /* TopViewController.swift */; };
 		3B2CBB3F2544376100775BF5 /* SendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2CBB3D2544376100775BF5 /* SendCell.swift */; };
 		3B2CBB402544376100775BF5 /* SendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B2CBB3E2544376100775BF5 /* SendCell.xib */; };
-		3B32EB1F254865EA002A688D /* NewsXmlModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32EB1E254865EA002A688D /* NewsXmlModel.swift */; };
 		3B32EB27254AFE71002A688D /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32EB26254AFE71002A688D /* WebViewController.swift */; };
 		3B54278525B1603000E02C01 /* DivingRecordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B54278425B1603000E02C01 /* DivingRecordData.swift */; };
 		3B54278D25B1B6BB00E02C01 /* DivingRecordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B54278C25B1B6BB00E02C01 /* DivingRecordDetailViewController.swift */; };
@@ -67,7 +66,6 @@
 		3B28423A253C17EC006ED973 /* TopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
 		3B2CBB3D2544376100775BF5 /* SendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCell.swift; sourceTree = "<group>"; };
 		3B2CBB3E2544376100775BF5 /* SendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SendCell.xib; sourceTree = "<group>"; };
-		3B32EB1E254865EA002A688D /* NewsXmlModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsXmlModel.swift; sourceTree = "<group>"; };
 		3B32EB26254AFE71002A688D /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		3B54278425B1603000E02C01 /* DivingRecordData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivingRecordData.swift; sourceTree = "<group>"; };
 		3B54278C25B1B6BB00E02C01 /* DivingRecordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivingRecordDetailViewController.swift; sourceTree = "<group>"; };
@@ -240,7 +238,6 @@
 				3B07996425B6520E0086C8BA /* Common */,
 				3B07996325B651520086C8BA /* SearchView */,
 				3B07996225B651270086C8BA /* ChatView */,
-				3B32EB1E254865EA002A688D /* NewsXmlModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -461,7 +458,6 @@
 				3B28423B253C17EC006ED973 /* TopViewController.swift in Sources */,
 				3BF55A832573D0D2002D951F /* TodoModel.swift in Sources */,
 				3B54278525B1603000E02C01 /* DivingRecordData.swift in Sources */,
-				3B32EB1F254865EA002A688D /* NewsXmlModel.swift in Sources */,
 				3B8077722556EA9000AE69ED /* RecommendedViewController.swift in Sources */,
 				3B28420B253BD608006ED973 /* ViewController.swift in Sources */,
 				3B284207253BD608006ED973 /* AppDelegate.swift in Sources */,
@@ -636,7 +632,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MP9J987NN4;
 				INFOPLIST_FILE = DivingMemoriesApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -644,7 +640,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "shiraishi1990.h-com.gmail.DivingMemoriesApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -658,7 +654,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MP9J987NN4;
 				INFOPLIST_FILE = DivingMemoriesApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -666,7 +662,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "shiraishi1990.h-com.gmail.DivingMemoriesApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

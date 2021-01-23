@@ -30,8 +30,6 @@ class DivingRecordViewController: UIViewController,UITableViewDelegate,UITableVi
         RecorListTableView.delegate = self
         
     }
-    
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //ナビゲーションバー非表示
@@ -41,7 +39,6 @@ class DivingRecordViewController: UIViewController,UITableViewDelegate,UITableVi
         //tableView更新
         RecorListTableView.reloadData()
     }
-
     //対象のものをfirebaseから取得(ロード)
     func listLoad(){
         let ref = db.collection("DivingRecord")

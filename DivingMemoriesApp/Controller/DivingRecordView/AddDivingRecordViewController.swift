@@ -12,7 +12,7 @@ import FirebaseAuth
 
 protocol DiviingValue {
     func diviingValue(set:DivingRecordModel)
-    
+
 }
 
 
@@ -34,6 +34,9 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
     let waterTemperaturePicker = UIPickerView()
     let transparencyPicker = UIPickerView()
     let weightPicker = UIPickerView()
+    
+    var imageView = UIImageView()
+    var image = UIImage(named: "drop-down.png");
     
     
     @IBOutlet var doneButtonObj: UIButton!
@@ -72,10 +75,19 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
     
     var recordeArray = [DivingRecordModel]()
     
+  
+    
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+      
+        
+   
+        
+
         
         
         doneButtonObj.layer.cornerRadius = 5
@@ -94,6 +106,15 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
         
         inTime.delegate = self
         inTime.placeholder = "入力してください"
+        let cgrect:CGRect = CGRect(x: 10, y: 0, width: 20, height: 20)
+        imageView.frame = cgrect
+        
+        inTime.rightViewMode = UITextField.ViewMode.always
+        inTime.rightViewMode = .always
+        imageView.image = image;
+        imageView.contentMode = .scaleAspectFit
+        inTime.rightView = imageView;
+        
         
         outTime.delegate = self
         outTime.placeholder = "入力してください"
@@ -126,7 +147,8 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
         commentTextViewObj.backgroundColor = .white
         commentTextViewObj.text = "コメント"
         commentTextViewObj.textColor = UIColor.lightGray
-    
+        
+        
         
         
         
@@ -137,6 +159,7 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+
         createPicker()
         
         
@@ -149,138 +172,113 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
     
     func createPicker(){
         
-        // DatePickerModeをDate(日付)に設定
+        datePicker.preferredDatePickerStyle = .wheels
+        inTimePicker.preferredDatePickerStyle = .wheels
+        outTimePicker.preferredDatePickerStyle = .wheels
+        
+        
         datePicker.datePickerMode = .date
+        inTimePicker.datePickerMode = .time
+        outTimePicker.datePickerMode = .time
+        
+        datePicker.locale = Locale(identifier: "ja_JP")
+        inTimePicker.locale = Locale(identifier: "ja_JP")
+        outTimePicker.locale = Locale(identifier: "ja_JP")
+        
+        
+    
+        
+        // ピッカー設定--------------------------------
+        // DatePickerModeをDate(日付)に設定
         
         // DatePickerを日本語化
-        datePicker.locale = NSLocale(localeIdentifier: "ja_JP") as Locale
         
-        // textFieldのinputViewにdatepickerを設定
         dateTextField.inputView = datePicker
+        inTimePicker.minuteInterval = 10
+        outTimePicker.minuteInterval = 10
+        inTime.inputView = inTimePicker
+        outTime.inputView = outTimePicker
+        w_type.inputView = weightPicker
+        permeability_typ.inputView = transparencyPicker
+        
+        // 決定バーの生成--------------------------------
         datePicker.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 200)
+        inTimePicker.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 200)
+        outTimePicker.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 200)
         
         // UIToolbarを設定
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
-        
         // Doneボタンを設定(押下時doneClickedが起動)
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneClicked))
-        
+        let doneButton = UIBarButtonItem(title: "完了", style: .done, target: self, action: #selector(AddDivingRecordViewController.doneClicked))
+        doneButton.tintColor = UIColor.red
         // Doneボタンを追加
         toolbar.setItems([doneButton], animated: true)
         
-        // FieldにToolbarを追加
-        dateTextField.inputAccessoryView = toolbar
-        
-        
-        
-        
-        
-        
-        
-        inTimePicker.datePickerMode = .time
-        outTimePicker.datePickerMode = .time
-        
-        inTimePicker.locale = Locale(identifier: "ja_JP")
-        outTimePicker.locale = Locale(identifier: "ja_JP")
-        
-        inTimePicker.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 200)
-        outTimePicker.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 200)
-        
-        inTimePicker.addTarget(self, action: #selector(doneClicked), for: .valueChanged)
-        outTimePicker.addTarget(self, action: #selector(doneClicked), for: .valueChanged)
-        
-        inTimePicker.minuteInterval = 10
-        outTimePicker.minuteInterval = 10
-        
+        // インプットビュー設定-----------------------------
+        // textFieldのinputViewにdatepickerを設定
+        dateTextField.inputView = datePicker
         inTime.inputView = inTimePicker
         outTime.inputView = outTimePicker
-        
-        toolbar.setItems([doneButton], animated: true)
+        // FieldにToolbarを追加
+        dateTextField.inputAccessoryView = toolbar
         inTime.inputAccessoryView = toolbar
         outTime.inputAccessoryView = toolbar
-        
-        
-        //ウェイトのタイプのプルダウン作成
-        w_type.inputView = weightPicker
-        
-        let weighttoolbar = UIToolbar()
-        weighttoolbar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
-        let weightdone = UIBarButtonItem(title: "完了", style: .done, target: self, action: #selector(AddDivingRecordViewController.doneClicked))
-        weighttoolbar.setItems([weightdone], animated: true)
-        w_type.inputAccessoryView = weighttoolbar
-        
-        
-        //
-        permeability_typ.inputView = transparencyPicker
-        
-        let permeability_typtoolbar = UIToolbar()
-        permeability_typtoolbar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
-        
-        let permeability_typdone = UIBarButtonItem(title: "完了", style: .done, target: self, action: #selector(AddDivingRecordViewController.doneClicked))
-        permeability_typtoolbar.setItems([permeability_typdone], animated: true)
-        permeability_typ.inputAccessoryView = permeability_typtoolbar
-        
-        
-        
-        
-        
-        
-        
-        
+        w_type.inputAccessoryView = toolbar
+        permeability_typ.inputAccessoryView = toolbar
+
         
     }
     
     
     
     @objc func doneClicked(picker: UIPickerView){
-        let dateFormatter = DateFormatter()
-        
-        
-        // 持ってくるデータのフォーマットを設定
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .none
-        dateFormatter.locale = NSLocale(localeIdentifier: "ja_JP") as Locale?
-        dateFormatter.dateStyle = DateFormatter.Style.medium
-        
-        // textFieldに選択した日付を代入
-        dateTextField.text = dateFormatter.string(from: datePicker.date)
-        
-        
-        
-        
         let formartter = DateFormatter()
-        formartter.dateFormat = "hh:mm"
         
-        if inTime.isFirstResponder{
-            
+        
+        
+        if dateTextField.isFirstResponder{
+            // 持ってくるデータのフォーマットを設定
+            formartter.dateStyle = .medium
+            formartter.timeStyle = .none
+            formartter.locale = NSLocale(localeIdentifier: "ja_JP") as Locale?
+            //formartter.dateStyle = DateFormatter.Style.medium
+            // textFieldに選択した日付を代入
+            dateTextField.text = formartter.string(from: datePicker.date)
+            dateTextField.endEditing(true)
+        }else if inTime.isFirstResponder{
+            formartter.dateFormat = "hh:mm"
             inTime.text = "\(formartter.string(from: inTimePicker.date))"
-            
+            inTime.endEditing(true)
         }else if outTime.isFirstResponder{
-            
+            formartter.dateFormat = "hh:mm"
             outTime.text = "\(formartter.string(from: outTimePicker.date))"
+            outTime.endEditing(true)
             
+        }else if weight.isFirstResponder{
+            weight.endEditing(true)
+        }else if w_type.isFirstResponder{
+            w_type.endEditing(true)
+        }else if permeability_typ.isFirstResponder{
+            permeability_typ.endEditing(true)
+        }else if transparency.isFirstResponder{
+            transparency.endEditing(true)
+        }else{
+            dateTextField.endEditing(false)
+            inTime.endEditing(false)
+            outTime.endEditing(false)
+            weight.endEditing(false)
+            w_type.endEditing(false)
+            permeability_typ.endEditing(false)
+            transparency.endEditing(false)
         }
-        
-        
         // キーボードを閉じる
         self.view.endEditing(true)
         
-        
-        
     }
     
     
     
-    //
-    @objc func dateChange(){
-        let formatter = DateFormatter()
-        formatter.dateFormat = "hh:mm"
-        
-        inTime.text = "\(formatter.string(from: inTimePicker.date))"
-        outTime.text = "\(formatter.string(from: outTimePicker.date))"
-        
-    }
     
     
     
@@ -332,7 +330,7 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
             
         }else if picker == weightPicker{
             w_type.text = type[row]
-
+            
         }
         
     }
@@ -367,10 +365,6 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
         dismiss(animated: true, completion: nil)
     }
     
-    //return押されたら呼ばれる
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        return true
-    }
     
     //テキストビューの編集が開始されたら呼ばれる(placeHolderとして・・・)
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -392,6 +386,7 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
     @IBAction func back(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
     
     
 }

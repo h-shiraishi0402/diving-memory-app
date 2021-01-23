@@ -1439,7 +1439,7 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dfy-qQ-xpf">
                                 <rect key="frame" x="344" y="534" width="50" height="34"/>
@@ -1688,24 +1688,6 @@
                                     <action selector="back:" destination="sKA-y8-c0I" eventType="touchUpInside" id="Ik4-Fh-VBP"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mc6-A0-d8n">
-                                <rect key="frame" x="254" y="64" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="POd-mG-CcV"/>
-                                    <constraint firstAttribute="height" constant="50" id="yyk-jO-uBE"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="24"/>
-                                <state key="normal" title="完了">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="titleShadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="done:" destination="sKA-y8-c0I" eventType="touchUpInside" id="YK3-1z-rX9"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tBu-Sf-kDM">
                                 <rect key="frame" x="20" y="125" width="374" height="20"/>
                                 <constraints>
@@ -1793,7 +1775,6 @@
                             <constraint firstItem="0eh-ev-zUz" firstAttribute="trailing" secondItem="7dy-PP-SDZ" secondAttribute="trailing" constant="20" id="G5L-J0-Nml"/>
                             <constraint firstItem="5yH-QH-VWk" firstAttribute="trailing" secondItem="0eh-ev-zUz" secondAttribute="trailing" id="GDq-CX-iI5"/>
                             <constraint firstItem="XwH-yX-LT7" firstAttribute="top" secondItem="Loe-GV-rq7" secondAttribute="top" id="IMF-hd-qHu"/>
-                            <constraint firstItem="DI8-jQ-70r" firstAttribute="leading" secondItem="Mc6-A0-d8n" secondAttribute="trailing" constant="30" id="JBd-zf-XWE"/>
                             <constraint firstItem="5yH-QH-VWk" firstAttribute="trailing" secondItem="0eh-ev-zUz" secondAttribute="trailing" id="KHr-M5-gm9"/>
                             <constraint firstItem="XwH-yX-LT7" firstAttribute="trailing" secondItem="0eh-ev-zUz" secondAttribute="trailing" id="MRx-rU-cMq"/>
                             <constraint firstItem="5yH-QH-VWk" firstAttribute="top" secondItem="Loe-GV-rq7" secondAttribute="top" id="QJP-sm-VSC"/>
@@ -1801,7 +1782,6 @@
                             <constraint firstItem="XwH-yX-LT7" firstAttribute="leading" secondItem="0eh-ev-zUz" secondAttribute="leading" id="SAE-Ml-bTX"/>
                             <constraint firstItem="V0g-Iv-f4t" firstAttribute="top" secondItem="7dy-PP-SDZ" secondAttribute="bottom" constant="30" id="Vqy-fU-JAn"/>
                             <constraint firstItem="0eh-ev-zUz" firstAttribute="trailing" secondItem="tBu-Sf-kDM" secondAttribute="trailing" constant="20" id="Xm6-dM-mvg"/>
-                            <constraint firstItem="Mc6-A0-d8n" firstAttribute="top" secondItem="0eh-ev-zUz" secondAttribute="top" constant="20" id="auk-Fg-h4M"/>
                             <constraint firstItem="DI8-jQ-70r" firstAttribute="top" secondItem="0eh-ev-zUz" secondAttribute="top" constant="20" id="bAs-DV-3nD"/>
                             <constraint firstItem="0eh-ev-zUz" firstAttribute="bottom" secondItem="V0g-Iv-f4t" secondAttribute="bottom" constant="10" id="gZ1-0a-2XC"/>
                             <constraint firstItem="7dy-PP-SDZ" firstAttribute="leading" secondItem="0eh-ev-zUz" secondAttribute="leading" constant="20" id="ghD-PF-9Dw"/>

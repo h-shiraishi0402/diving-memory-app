@@ -102,11 +102,13 @@ class AnalysisModel {
                     
                     print(response.debugDescription)
                     
-                    
+              
                 }
                 break
                 case .failure: print(response.debugDescription)
                 break
+                    
+                
                 
                 
                 
