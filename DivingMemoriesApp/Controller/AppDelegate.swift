@@ -11,6 +11,7 @@ import FirebaseAuth
 import FirebaseMessaging
 import UserNotificationsUI
 import IQKeyboardManagerSwift
+import GoogleMobileAds
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -32,6 +33,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         IQKeyboardManager.shared.enableAutoToolbar = false
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         //キーボードが上がったらViewもあげるもの----------------------------------------------------------
+        
+        
+        
+        //広告に必要
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        
+        
         
         
         

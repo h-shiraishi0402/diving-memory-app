@@ -13,6 +13,7 @@ protocol SendValuProtocol {
     
     func sendData(arrayData:Array<ShopModel>,result:Int)
     func setName(name:[String],url:[String],image:[String])
+    func check(num:Int)
 }
 
 
@@ -82,6 +83,7 @@ class AnalysisModel {
                             print(shopModel.debugDescription)
                             
                             
+                            
                         }else{
                             
                             print("エラー")
@@ -95,7 +97,7 @@ class AnalysisModel {
                     //プロトコルに値をセット
                     sendValueProtocol?.sendData(arrayData: shopModel, result: shopModel.count)
                     sendValueProtocol?.setName(name: name,url: url, image: image)
-                    
+                    sendValueProtocol?.check(num: 1)
                     
                 }catch{
                     

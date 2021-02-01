@@ -9,18 +9,14 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 import FirebaseAuth
+import GoogleMobileAds
 
 class ChatRoomViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
-    
-    /*?
-     
-     ここの画面構成はどうしよう・・・・
-     ルームのみか・・・課金でルーム作成できるようにするか・・・
-     */
-    
+
     
     @IBOutlet weak var ChatRoom: UITableView!
+    @IBOutlet var bannerView: GADBannerView!
     
     
     var RoomName = ["test"]
@@ -31,6 +27,11 @@ class ChatRoomViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         ChatRoom.delegate = self
         ChatRoom.dataSource = self
+        
+        //バナー広告
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
         
         // Do any additional setup after loading the view.
     }
@@ -64,8 +65,10 @@ class ChatRoomViewController: UIViewController,UITableViewDelegate,UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
 
+        //ハイライトを消す
+           tableView.deselectRow(at: indexPath, animated: true)
+        
             performSegue(withIdentifier: "CHAT", sender: nil)
            
  

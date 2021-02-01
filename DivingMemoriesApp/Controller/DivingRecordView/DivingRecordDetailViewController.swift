@@ -102,10 +102,11 @@ class DivingRecordDetailViewController: UIViewController, UIImagePickerControlle
             backImageSet.image = UIImage(named: "no_image")
         }
 
+        //編集出来ないようにする
         memo.isEditable = false
         
         
-        
+        //インタイム
         inTime.text = "IN TIME:\(inTimes)"
         outTime.text = "OUT TIME:\(outTimes)"
         startingPressure.text = "開始 圧力:\(startingPressures)"

@@ -17,6 +17,8 @@ import PKHUD
 
 
 class Surrounding_MealsViewController: UIViewController,SendValuProtocol,CLLocationManagerDelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource{
+    
+    
     var latitudeValue = Double()
     var longitudeValue = Double()
     var urlValue = String()
@@ -31,6 +33,8 @@ class Surrounding_MealsViewController: UIViewController,SendValuProtocol,CLLocat
     var image = [String]()
     var testCount = Int()
     
+    var titleString = String()
+    
     let cellSpacingHeight: CGFloat = 5
     
     @IBOutlet weak var tableView: UITableView!
@@ -38,6 +42,8 @@ class Surrounding_MealsViewController: UIViewController,SendValuProtocol,CLLocat
     @IBOutlet weak var textField: UITextField!
     // @IBOutlet weak var imageView: UIImageView!
     
+  
+    @IBOutlet var textView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,10 +51,11 @@ class Surrounding_MealsViewController: UIViewController,SendValuProtocol,CLLocat
         textField.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorStyle = .none
         startUpdatingLocation()
         configuerSubView()
         
-        textField.layer.cornerRadius = 20
+        textView.layer.cornerRadius = 5
         textField.clipsToBounds = true
         
         
@@ -57,14 +64,15 @@ class Surrounding_MealsViewController: UIViewController,SendValuProtocol,CLLocat
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        tableView.reloadData()
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         
         tableView.reloadData()
     }
-    
+ 
+    func check(num: Int) {
+        if num == 1{
+            tableView.reloadData()
+        }
+    }
     
     
     //位置情報を取得して良いかの許可する画面の作成
@@ -223,7 +231,7 @@ class Surrounding_MealsViewController: UIViewController,SendValuProtocol,CLLocat
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 150
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return cellSpacingHeight
@@ -241,25 +249,27 @@ class Surrounding_MealsViewController: UIViewController,SendValuProtocol,CLLocat
     
     //セルの構築
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell_res", for: indexPath)
         
-        
+        cell.layer.cornerRadius = 5
         
         testCount += 1
         print(testCount)
-        cell.selectionStyle = .none
+
         
-        cell.textLabel?.text = name[indexPath.row]
-        cell.textLabel?.font = .boldSystemFont(ofSize: 17)
-        cell.textLabel?.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        cell.textLabel?.numberOfLines = 2
-        cell.imageView!.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-        cell.imageView!.contentMode = .scaleAspectFit
-        cell.imageView!.sd_setImage(with: URL(string: image[indexPath.row]), completed: nil)
+        let cellImageView = cell.contentView.viewWithTag(1) as! UIImageView
+
+        cellImageView.sd_setImage(with: URL(string: image[indexPath.row]))
+        cellImageView.layer.cornerRadius = 5
+
+        //room名
+        let cellName = cell.contentView.viewWithTag(2) as! UILabel
+        cellName.text = name[indexPath.row]
         
         
-        
-        
+        let contentsView = cell.contentView.viewWithTag(3)!
+        contentsView.layer.cornerRadius = 5
         
         
         return cell
@@ -316,6 +326,7 @@ class Surrounding_MealsViewController: UIViewController,SendValuProtocol,CLLocat
     @IBAction func back(_ sender: Any) {
         
         dismiss(animated: true, completion: nil)
+    
     }
     
     

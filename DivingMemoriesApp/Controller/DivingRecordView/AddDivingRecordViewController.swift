@@ -381,6 +381,22 @@ class AddDivingRecordViewController: UIViewController, UITextFieldDelegate, UIPi
             textView.textColor = UIColor.lightGray
         }
     }
+  
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        
+        resignFirstResponder()
+        dateTextField.endEditing(false)
+        inTime.endEditing(false)
+        outTime.endEditing(false)
+        weight.endEditing(false)
+        w_type.endEditing(false)
+        permeability_typ.endEditing(false)
+        transparency.endEditing(false)
+        
+        
+        
+    }
     
     //戻る
     @IBAction func back(_ sender: Any) {

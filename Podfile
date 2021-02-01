@@ -27,6 +27,7 @@ pod 'SDWebImage', '~> 5.0'
 pod 'lottie-ios'
 pod 'SwiftGifOrigin', '~> 1.7.0'
 pod 'APNGKit', '~> 1.0'
+pod 'Google-Mobile-Ads-SDK'
 
 
 post_install do |installer|  

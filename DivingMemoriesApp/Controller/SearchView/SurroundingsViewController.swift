@@ -35,149 +35,152 @@ class SurroundingsViewController: UIViewController,UITableViewDelegate,UITableVi
    
     
 
+    @IBOutlet var tableView: UITableView!
+    
+    
+    var cellNameArray = ["WEATHER","RESTURANT","SHOP","LOADING"]
+    var imageArray = ["landscape-3369304_1920","Restaurant","Air","Lodging"]
 
     
-    var cellNameArray = ["weather","","",""]
-    
-    
+    var indexNum = Int()
+    var titleString = String()
+
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
- 
-        
+        tableView.delegate = self
+        tableView.dataSource = self
+            
         
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
     
+        
+    }
+    
+    
+    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        
-        switch section {
-        
-        case 0: return 1
-        case 1: return 1
-        case 2: return 1
-        case 3: return 1
-        
-        default: return 1
-        }
 
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        
-        
         return cellNameArray.count
+
     }
-    
-    
-    
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+
+        return 1
+    }
+
+
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "", for: indexPath)
-    
         
-        switch indexPath.section{
-        
-        
-        case 0:
-            if indexPath.row == 0{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-            }else{
-                
-                
-            }
-            
-        case 1:
-            if indexPath.row == 0{
+        let cellImageView = cell.contentView.viewWithTag(1) as! UIImageView
 
-            }else{
-                
-                
-            }
-        case 2:
-            if indexPath.row == 0{
+        cellImageView.image = UIImage(named: imageArray[indexPath.row])
 
-            }else{
-                
-                
-            }
-        case 3:
-            if indexPath.row == 0{
+        //room名
+        let cellName = cell.contentView.viewWithTag(2) as! UILabel
+        cellName.text = cellNameArray[indexPath.row]
+        
+        
+        
+        
+        
+//
+//        switch indexPath.row{
+//
+//
+//        case 0:
+//
+//
+//        case 1:
+//
+//        case 2:
+//
+//        case 3:
+//
+//
+//
+//        default: return cell
+//
+//
+//        }
 
-            }else{
-                
-                
-            }
-            
-            
-        default: return cell
-            
-        
-        
-        
-        
-        
-        
-        
-        }
-        
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
         return cell
     }
     
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return tableView.frame.size.height/4
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
-        switch indexPath.section{
-        
-        
+
+        print(indexPath.row)
+
+
+        switch indexPath.row{
+
+       
         case 0:
-            if indexPath.row == 0{
+            print(indexPath.row)
 
-            }else{
-                
-                
-            }
-            
+            print("0")
         case 1:
-            if indexPath.row == 0{
+            indexNum = 1
+            performSegue(withIdentifier: "SurroundingVc", sender: nil)
+            break
+        
 
-            }else{
-                
-                
-            }
-        case 2:
-            if indexPath.row == 0{
+//        case 1:
+//
+//
+//
+//        case 2:
+//
+//
+//
+//        case 3:
+//
 
-            }else{
-                
-                
-            }
-        case 3:
-            if indexPath.row == 0{
+        
 
-            }else{
-                
-                
-            }
-            
         default: return
-        
-        
+
+
         }
+
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        if segue.identifier == "SurroundingVc"{
+            
+        let SurroundingVc = self.storyboard?.instantiateViewController(identifier: "SurroundingVc") as!  Surrounding_MealsViewController
+        SurroundingVc.titleString = cellNameArray[indexNum]
+            
+        }
     }
 
+    @IBAction func back(_ sender: Any) {
+        
+        dismiss(animated: true, completion: nil)
+        
+    }
 }

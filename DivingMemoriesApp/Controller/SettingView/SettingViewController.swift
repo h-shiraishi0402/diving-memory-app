@@ -68,6 +68,16 @@ class SettingViewController:UIViewController,UITextFieldDelegate, UIPickerViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        nickNameLabel.text = "Nickname"
+        sexLabel.text = "Gender"
+        ageLabel.text = "Age"
+        ownedLicenseLabel.text = "License"
+        divingHistoryLabel.text = "History"
+        
+        
+        
         //デリゲート等
         temporary()
         //textViewのピッカー用の値
@@ -209,6 +219,7 @@ class SettingViewController:UIViewController,UITextFieldDelegate, UIPickerViewDe
         
         if imageData != nil  {
             profileImage.image = UIImage(data: imageData!)
+            profileImage.contentMode = .scaleAspectFill
         }
         
         if nickName != nil  {
@@ -402,31 +413,33 @@ class SettingViewController:UIViewController,UITextFieldDelegate, UIPickerViewDe
         AgePicker.dataSource = self
         sexPicker.dataSource = self
         
-        nickNameCreatTextField.layer.cornerRadius = 20
+        nickNameCreatTextField.layer.cornerRadius = 10
         nickNameCreatTextField.clipsToBounds = true
-        ageCreatTextField.layer.cornerRadius = 20
+        ageCreatTextField.layer.cornerRadius = 10
         ageCreatTextField.clipsToBounds = true
-        sexCreatTextField.layer.cornerRadius = 20
+        sexCreatTextField.layer.cornerRadius = 10
         sexCreatTextField.clipsToBounds = true
-        ownedLicenseCreatTextField.layer.cornerRadius = 20
+        ownedLicenseCreatTextField.layer.cornerRadius = 10
         ownedLicenseCreatTextField.clipsToBounds = true
-        divingHistoryCreatTextField.layer.cornerRadius = 20
+        divingHistoryCreatTextField.layer.cornerRadius = 10
         divingHistoryCreatTextField.clipsToBounds = true
-        finishButtonObject.layer.cornerRadius = 20
+        finishButtonObject.layer.cornerRadius = 10
+        finishButtonObject.setTitle("Done", for: .normal)
         finishButtonObject.clipsToBounds = true
-        addNewLabel.layer.cornerRadius = 20
-        addNewLabel.clipsToBounds = true
-        nickNameLabel.layer.cornerRadius = 20
-        nickNameLabel.clipsToBounds = true
-        ageLabel.layer.cornerRadius = 20
-        ageLabel.clipsToBounds = true
-        sexLabel.layer.cornerRadius = 20
-        sexLabel.clipsToBounds = true
-        ownedLicenseLabel.layer.cornerRadius = 20
-        ownedLicenseLabel.clipsToBounds = true
-        divingHistoryLabel.layer.cornerRadius = 20
-        divingHistoryLabel.clipsToBounds = true
-        logOutButtonObj.layer.cornerRadius = 20
+        logOutButtonObj.layer.cornerRadius = 10
         logOutButtonObj.clipsToBounds = true
+        addNewLabel.layer.cornerRadius = 10
+        addNewLabel.clipsToBounds = true
+//        nickNameLabel.layer.cornerRadius = 10
+//        nickNameLabel.clipsToBounds = true
+//        ageLabel.layer.cornerRadius = 10
+//        ageLabel.clipsToBounds = true
+//        sexLabel.layer.cornerRadius = 10
+//        sexLabel.clipsToBounds = true
+//        ownedLicenseLabel.layer.cornerRadius = 10
+//        ownedLicenseLabel.clipsToBounds = true
+//        divingHistoryLabel.layer.cornerRadius = 10
+//        divingHistoryLabel.clipsToBounds = true
+     
     }
 }

@@ -56,6 +56,7 @@ class AddScheduleViewController: UIViewController,UITextViewDelegate,UIPickerVie
         
         dutchTreatTextField.delegate = self
         
+        memoTextView.layer.cornerRadius = 5
         
         finishObj.layer.cornerRadius = 30
         finishObj.clipsToBounds = true

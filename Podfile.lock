@@ -296,6 +296,9 @@ PODS:
     - FirebaseCore (~> 7.0)
     - GTMSessionFetcher/Core (~> 1.4)
   - FSCalendar (2.8.2)
+  - Google-Mobile-Ads-SDK (7.68.0):
+    - GoogleAppMeasurement (~> 7.0)
+    - GoogleUserMessagingPlatform (~> 1.1)
   - GoogleAppMeasurement (7.1.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
     - GoogleUtilities/MethodSwizzler (~> 7.0)
@@ -304,6 +307,7 @@ PODS:
     - nanopb (~> 2.30906.0)
   - GoogleDataTransport (8.0.1):
     - nanopb (~> 2.30906.0)
+  - GoogleUserMessagingPlatform (1.4.0)
   - GoogleUtilities/AppDelegateSwizzler (7.1.1):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
@@ -378,6 +382,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - FirebaseMessaging
   - FSCalendar
+  - Google-Mobile-Ads-SDK
   - IQKeyboardManagerSwift
   - lottie-ios
   - PKHUD (~> 5.0)
@@ -405,8 +410,10 @@ SPEC REPOS:
     - FirebaseMessaging
     - FirebaseStorage
     - FSCalendar
+    - Google-Mobile-Ads-SDK
     - GoogleAppMeasurement
     - GoogleDataTransport
+    - GoogleUserMessagingPlatform
     - GoogleUtilities
     - "gRPC-C++"
     - gRPC-Core
@@ -440,8 +447,10 @@ SPEC CHECKSUMS:
   FirebaseMessaging: 076054895c9260f82c7304cc7709dbf19b8f3e4a
   FirebaseStorage: 80e2cd5200791540ca544f4dcac5e6b56994fc97
   FSCalendar: e6a2eb9c571bf0719ed797ef807e08426753c241
+  Google-Mobile-Ads-SDK: 29bbdb182d69ff606cc0301da1590b40be8d2205
   GoogleAppMeasurement: 89e1a64593f968713b0506ba1b53b38a154bf9a5
   GoogleDataTransport: e4085e6762f36a6141738f46b0153473ce57fb18
+  GoogleUserMessagingPlatform: b168e8c46cd8f92aa3e34b584c4ca78a411ce367
   GoogleUtilities: 3dc4ff0d5e4840e2fa8eef0889620e8c33d4218c
   "gRPC-C++": 13d8ccef97d5c3c441b7e3c529ef28ebee86fad2
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
@@ -457,6 +466,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
   ViewAnimator: 16435576cd44fca0b0d63147d5031fd3e91d295a
 
-PODFILE CHECKSUM: dc9c7fc500a89cd90a65faecd927eec6978d8434
+PODFILE CHECKSUM: 8cf793393c2c0db66e566aba49ced078b9607a70
 
 COCOAPODS: 1.9.3
